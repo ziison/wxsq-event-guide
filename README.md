@@ -67,7 +67,7 @@
 		<style id="htmlzoom">\
 		    html{font-size:'+(zoom*20)+'px;}\
 		    .zoom,.o2-{zoom:'+(zoom/2)+';}\
-        .o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}
+        .o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}\
 		</style>\
           ');
 }();
@@ -116,7 +116,7 @@
 		<style id="htmlzoom">\
 		    html{font-size:'+(zoom*20)+'px;}\
 		    .zoom,.o2-{zoom:'+(zoom/2)+';}\
-        .o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}
+        .o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}\
 		</style>\
           ');
 }();
