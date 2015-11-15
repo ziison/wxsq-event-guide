@@ -65,16 +65,16 @@
   	
   		<link rel="stylesheet" type="text/css" href="css/index.css">
   	
-
 <script type="text/javascript">
 !function(){
-    var cw=document.documentElement.clientWidth||document.body.clientWidth,zoom=cw/320,ch= document.documentElement.clientHeight || document.body.clientHeight;
+    var maxWidth=640;
+    var cw=document.documentElement.clientWidth||document.body.clientWidth,zoom=maxWidth&&maxWidth<cw?maxWidth/320:cw/320,ch= document.documentElement.clientHeight || document.body.clientHeight;
     window.zoom=window.o2Zoom=zoom;
     document.write('<style id="o2HtmlFontSize">html{font-size:'+(zoom*20)+'px;}.o2-zoom,.zoom{zoom:'+(zoom/2)+';}.o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}</style>');
     window.addEventListener("resize",function(e){
-        var cw=document.documentElement.clientWidth||document.body.clientWidth,zoom=cw/320,ch= document.documentElement.clientHeight || document.body.clientHeight;
+        var cw=document.documentElement.clientWidth||document.body.clientWidth,zoom=maxWidth&&maxWidth<cw?maxWidth/320:cw/320,ch= document.documentElement.clientHeight || document.body.clientHeight;
         window.zoom=window.o2Zoom=zoom;
-        document.getELementById("o2HtmlFontSize").innerHTML='<style id="o2HtmlFontSize">html{font-size:'+(zoom*20)+'px;}.o2-zoom,.zoom{zoom:'+(zoom/2)+';}.o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}</style>';
+        document.getElementById("o2HtmlFontSize").innerHTML='html{font-size:'+(zoom*20)+'px;}.o2-zoom,.zoom{zoom:'+(zoom/2)+';}.o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}';
     });
 }();
 </script>
@@ -87,7 +87,7 @@
 ```html
 <% widget 
 	path="/widget/header" 
-	data="{'title':'页面标题','css':['css/home.css','css/ani.css'],'zoom':0,'scale':0,'rem':1}"
+	data="{'title':'感恩节卖场','css':['css/index.css'],'zoom':1,'scale':1,'rem':1,'maxWidth':'640'}"
 %>
 <!--根据实际需求设置zoom,scale,rem。默认只开启rem-->
 <body>
@@ -111,16 +111,16 @@
   	<% for(var i=0; i<css.length; i++) {%>
   		<link rel="stylesheet" type="text/css" href="<%= css[i] %>">
   	<% } %>
-
 <script type="text/javascript">
 !function(){
-    var cw=document.documentElement.clientWidth||document.body.clientWidth,zoom=cw/320,ch= document.documentElement.clientHeight || document.body.clientHeight;
-    <% if(zoom==1){ %>window.zoom=window.o2Zoom=zoom;<%}%>
+    var maxWidth=<%=maxWidth%>;
+    var cw=document.documentElement.clientWidth||document.body.clientWidth,zoom=maxWidth&&maxWidth<cw?maxWidth/320:cw/320,ch= document.documentElement.clientHeight || document.body.clientHeight;
+    <% if(zoom==1 || scale==1){ %>window.zoom=window.o2Zoom=zoom;<%}%>
     document.write('<style id="o2HtmlFontSize"><% if(rem==1){ %>html{font-size:'+(zoom*20)+'px;}<%}%><% if(zoom==1){ %>.o2-zoom,.zoom{zoom:'+(zoom/2)+';}<%}%><%if(scale==1){ %>.o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}<%}%></style>');
     window.addEventListener("resize",function(e){
-        var cw=document.documentElement.clientWidth||document.body.clientWidth,zoom=cw/320,ch= document.documentElement.clientHeight || document.body.clientHeight;
-        <% if(zoom==1){ %>window.zoom=window.o2Zoom=zoom;<%}%>
-        document.getELementById("o2HtmlFontSize").innerHTML='<style id="o2HtmlFontSize"><% if(rem==1){ %>html{font-size:'+(zoom*20)+'px;}<%}%><% if(zoom==1){ %>.o2-zoom,.zoom{zoom:'+(zoom/2)+';}<%}%><%if(scale==1){ %>.o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}<%}%></style>';
+        var cw=document.documentElement.clientWidth||document.body.clientWidth,zoom=maxWidth&&maxWidth<cw?maxWidth/320:cw/320,ch= document.documentElement.clientHeight || document.body.clientHeight;
+        <% if(zoom==1 || scale==1){ %>window.zoom=window.o2Zoom=zoom;<%}%>
+        document.getElementById("o2HtmlFontSize").innerHTML='<% if(rem==1){ %>html{font-size:'+(zoom*20)+'px;}<%}%><% if(zoom==1){ %>.o2-zoom,.zoom{zoom:'+(zoom/2)+';}<%}%><%if(scale==1){ %>.o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}<%}%>';
     });
 }();
 </script>
