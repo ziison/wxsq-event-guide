@@ -111,6 +111,7 @@
   	<% for(var i=0; i<css.length; i++) {%>
   		<link rel="stylesheet" type="text/css" href="<%= css[i] %>">
   	<% } %>
+</head>
 <script type="text/javascript">
 !function(){
     var maxWidth=<%=maxWidth%>;
@@ -124,7 +125,6 @@
     });
 }();
 </script>
-</head>
 ```
 
 
