@@ -48,6 +48,7 @@
 
 - 页面的尺寸适配统一使用 `REM` 来完成。与前端开发配合时，可以辅助地使用 `zoom`/`scale` 。
 - `320px`宽度下，`<html>`节点的`font-size`为`20px`
+- reset-sass common-sass ---- 统一使用一个库
 
 
 ## 统一运营活动的头部格式
@@ -138,3 +139,69 @@
 例如： `.o2-goods-list{...}`
 
 *这里会有一个问题：如果外部引用我们的底部或其它通用组件时，如果他们不使用REM，那就会出问题。所以做通用组件时，还需要考虑这情况*
+
+
+## 统一的reset sass
+
+```css
+@charset "utf-8";
+
+/* 重置样式 */
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: 0;
+}
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+img {
+    border: 0 none;
+    vertical-align: top;
+}
+i, em {
+    font-style: normal;
+}
+ol, ul {
+    list-style: none;
+}
+input, select, button, h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-family: inherit;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+html {
+    width: 100% ;
+}
+body {
+    margin:0 auto;
+    background: #FFF;
+    font-size: 14px;
+    font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
+    line-height: 1.5;
+    color: #666;
+    -webkit-text-size-adjust: 100% !important;
+    -webkit-user-select: none;
+    user-select: none;
+}
+```
+
+## 关于1px像素的border
+
+不建议直接使用rem,而是直接使用1px。
+
+## 奇数pxborder的取舍
+
+一般情况下，四舍五入。具体按实际效果做取舍
+
+
+
+
