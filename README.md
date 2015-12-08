@@ -212,6 +212,11 @@ body {
 
 一般情况下，四舍五入。具体按实际效果做取舍
 
+## 统一使用`<div class="wrapper"></div>`做为根节点
+
+强制使用`<div class="wrapper"></div`做为根节点，并保证带以下css样式: `margin: 0 auto; position: relative`
+
+
 
 
 
