@@ -86,11 +86,11 @@
  `ko`下统一使用以下结构：
 
 ```html
-<% widget 
-	path="/widget/header" 
-	data="{'title':'感恩节卖场','css':['css/index.css'],'zoom':1,'scale':1,'rem':1,'maxWidth':'640'}"
+<% widget
+	path="/widget/header"
+	data="{'title':'双十二预热 三免一','css':['css/index.css'],'zoom':1,'scale':1,'rem':1,'fixIP5':1,'maxWidth':'640'}"
 %>
-<!--根据实际需求设置zoom,scale,rem。默认只开启rem-->
+<!--根据实际需求设置zoom,scale,rem。默认只开启rem。fixIP5表示强制IP5的微信webview的宽高比为极限比率-->
 <body>
 
 </body>
@@ -116,14 +116,24 @@
 <script type="text/javascript">
 !function(){
     var maxWidth=<%=maxWidth%>;
-    var cw=document.documentElement.clientWidth||document.body.clientWidth,zoom=maxWidth&&maxWidth<cw?maxWidth/320:cw/320,ch= document.documentElement.clientHeight || document.body.clientHeight;
-    <% if(zoom==1 || scale==1){ %>window.zoom=window.o2Zoom=zoom;<%}%>
-    document.write('<style id="o2HtmlFontSize"><% if(rem==1){ %>html{font-size:'+(zoom*20)+'px;}<%}%><% if(zoom==1){ %>.o2-zoom,.zoom{zoom:'+(zoom/2)+';}<%}%><%if(scale==1){ %>.o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}<%}%></style>');
-    window.addEventListener("resize",function(e){
-        var cw=document.documentElement.clientWidth||document.body.clientWidth,zoom=maxWidth&&maxWidth<cw?maxWidth/320:cw/320,ch= document.documentElement.clientHeight || document.body.clientHeight;
+    document.write('<style id="o2HtmlFontSize"></style>');
+    var o2_resize=function(){
+        var cw,ch;
+        if(document&&document.documentElement){
+            cw=document.documentElement.clientWidth||document.body.clientWidth,ch= document.documentElement.clientHeight || document.body.clientHeight;
+        }else if(window.localStorage["o2-cw"]&&window.localStorage["o2-ch"]){
+            cw=parseInt(window.localStorage["o2-cw"])||0,ch=parseInt(window.localStorage["o2-ch"])||0;
+        }
+        if(!cw||!ch)return ;//出错了
+        
+        var zoom=maxWidth&&maxWidth<cw?maxWidth/320:cw/320,zoomY=ch/504;
+        window.localStorage["o2-cw"]=cw,window.localStorage["o2-ch"]=ch;
+        <% if(fixIP5==1) {%>zoom=Math.min(zoom,zoomY);<%}%>
         <% if(zoom==1 || scale==1){ %>window.zoom=window.o2Zoom=zoom;<%}%>
         document.getElementById("o2HtmlFontSize").innerHTML='<% if(rem==1){ %>html{font-size:'+(zoom*20)+'px;}<%}%><% if(zoom==1){ %>.o2-zoom,.zoom{zoom:'+(zoom/2)+';}<%}%><%if(scale==1){ %>.o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}<%}%>';
-    });
+    };
+    document&&document.documentElement ? o2_resize() : setTimeout(o2_resize,500);
+    window.addEventListener("resize",o2_resize);
 }();
 </script>
 ```
