@@ -155,52 +155,65 @@
 
 ```css
 @charset "utf-8";
-
 /* 重置样式 */
 * {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    outline: 0;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	outline: 0
 }
-body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
+
+*,blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul {
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline
 }
+
 img {
-    border: 0 none;
-    vertical-align: top;
+	border: 0 none;
+	vertical-align: top
 }
-i, em {
-    font-style: normal;
+
+em,i {
+	font-style: normal
 }
-ol, ul {
-    list-style: none;
+
+ol,ul {
+	list-style: none
 }
-input, select, button, h1, h2, h3, h4, h5, h6 {
-    font-size: 100%;
-    font-family: inherit;
+
+button,h1,h2,h3,h4,h5,h6,input,select {
+	font-size: 100%;
+	font-family: inherit
 }
+
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0
 }
+
 a {
-    text-decoration: none;
-    color: #333;
+	text-decoration: none
 }
-html {
-    width: 100% ;
+
+a,body {
+	color: #666
 }
+
 body {
-    margin:0 auto;
-    background: #FFF;
-    font-size: 14px;
-    font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
-    line-height: 1.5;
-    color: #666;
-    -webkit-text-size-adjust: 100% !important;
-    -webkit-user-select: none;
-    user-select: none;
+	margin: 0 auto;
+	min-width: 20pc;
+	max-width: 40pc;
+	height: 100%;
+	font-size: 14px;
+	font-family: Helvetica,STHeiti STXihei,Microsoft JhengHei,Microsoft YaHei,Arial;
+	line-height: 1.5;
+	-webkit-text-size-adjust: 100%!important;
+	text-size-adjust: 100%!important
+}
+
+input[type=text],textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none
 }
 ```
 
