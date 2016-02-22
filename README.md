@@ -256,3 +256,6 @@ input[type=text],textarea {
 
 css/html的命名规范请参考：http://aotu.io/guide/docs/name/htmlcss.html
 
+## 代码提交
+
+下班前，必须把手头上的项目提交到SVN上。
