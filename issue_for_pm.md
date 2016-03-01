@@ -80,7 +80,7 @@ TAG：搜索关键字组。
 有部分SNS是不需要弹窗的，但是建议也让设计做两个简单的文字弹窗以做后备。
 **建议弹窗做成常规形状即可，太个性化的话，不好做扩展。每增加一个弹窗就得视觉重构开发三方同学加入，浪费资源。**
 
-推荐的弹窗如下图：
+推荐的弹窗如下图：  
 ![弹窗](http://jdc.jd.com/fd/promote/leeenx/raq/7.png)
 
 不推荐的弹窗如下图：
@@ -91,7 +91,7 @@ TAG：搜索关键字组。
 
 ##弹窗按钮
 
-一般情况下，PSD文档只提供以下结构的弹窗：
+一般情况下，PSD文档只提供以下结构的弹窗：  
 ![弹窗](http://jdc.jd.com/fd/promote/leeenx/raq/7.png)
 
 项目上线后的各种不可控性，必将会导致上面的结构不够使用的。为了保证弹窗的扩展用性，建议在视觉稿中再提供**双按钮**弹窗和带**关闭按钮"X"**的弹窗。如下：
@@ -197,6 +197,13 @@ PM同学可以参考过往相同的项目，或是相近的项目来选择商品
 
 这里不止是商品列表而已，也可以在这里找你想要的模块：[运营构建组件库](http://jdc.jd.com/component/)
 
+## 商品图片尺寸提供
+
+如果有商品列表的视觉稿，请让视觉设计师提供对应的尺寸规范。如下：
+
+![规范文件](http://jdc.jd.com/fd/promote/leeenx/raq/20160301.jpg)
+
+
 ##公共底部
 
 运营类活动是使用统一的公共底部的。如下：
@@ -223,19 +230,19 @@ PM同学可以参考过往相同的项目，或是相近的项目来选择商品
 
 设计师有时候为了增加页面的质感会使用细纹背景。如下:
 
-![数码校园行](//jdc.jd.com/fd/promote/leeenx/raq/20151002/13.png)
+![数码校园行](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/13.png)
 
 此时需要让设计师提供可以用于平铺显示的一小块背景。如下：
 
-![数码校园行平铺背景](//jdc.jd.com/fd/promote/leeenx/raq/20151002/14.png)
+![数码校园行平铺背景](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/14.png)
 
 校园行是一个使用了可以平铺背景的例子。近期有一个“金秋风暴”的页面就是一个反面例子：
 
-![金秋风暴](//jdc.jd.com/fd/promote/leeenx/raq/20151002/15.png)
+![金秋风暴](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/15.png)
 
 跟设计师要背景图片时，设计师居然给了以下图片！！！
 
-![金秋风暴长背景](//jdc.jd.com/fd/promote/leeenx/raq/20151002/16.jpg)
+![金秋风暴长背景](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/16.jpg)
 
 上图的尺寸是：640 X 4616
 图片的大小是：无损PNG 6000K，中质量jpg : 153K
@@ -244,11 +251,11 @@ PM同学可以参考过往相同的项目，或是相近的项目来选择商品
 
 重构同学只能随便选取一块背景来做平铺：
 
-![金秋风暴背景](//jdc.jd.com/fd/promote/leeenx/raq/20151002/17.png)
+![金秋风暴背景](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/17.png)
 
 但是没法做到无缝平铺，如下：
 
-![金秋风暴背景](//jdc.jd.com/fd/promote/leeenx/raq/20151002/18.png)
+![金秋风暴背景](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/18.png)
 
 如果PM同学无法保证提供平铺背景，那么请接受无法平铺背景的结果。
 
@@ -256,13 +263,13 @@ PM同学可以参考过往相同的项目，或是相近的项目来选择商品
 
 有些SNS活动需要长背景做氛围图。如下：
 
-![618期间的礼包页面](//jdc.jd.com/fd/promote/leeenx/raq/20151002/19.png)
+![618期间的礼包页面](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/19.png)
 
 这张氛围图完美地解决的平滑过渡的问题，因为氛围图的底部是往纯色过渡。
 
 而下面这张图就不能很好的做到平滑过渡：
 
-![双十一10月分互动页面的长背景](//jdc.jd.com/fd/promote/leeenx/raq/20151002/20.png)
+![双十一10月分互动页面的长背景](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/20.png)
 
 ##逐帧动画需要第一帧画面的psd文档
 
