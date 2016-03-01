@@ -27,9 +27,9 @@
 
 以下是常见的最终商品列表：
 
-![推荐的商品列表文字](//jdc.jd.com/fd/promote/leeenx/raq/20151002/6.png)
+![推荐的商品列表文字](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/6.png)
 
-![推荐的商品列表文字](//jdc.jd.com/fd/promote/leeenx/raq/20151002/7.jpg)
+![推荐的商品列表文字](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/7.jpg)
 
 ## 常用模块参考
 
@@ -45,15 +45,15 @@ SNS传播活动按钮是最常见的元素，因为活动的不确定性，所�
 
 下图是CP做的一个SNS页面：
 
-![描边按钮](//jdc.jd.com/fd/promote/leeenx/raq/20151002/8.png)
+![描边按钮](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/8.png)
 
 使用css实现的描边最好的效果如下：
 
-![css描边的按钮](//jdc.jd.com/fd/promote/leeenx/raq/20151002/9.png)
+![css描边的按钮](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/9.png)
 
 而事实上，不描边的效果会更好。如下：
 
-![无描边的按钮](//jdc.jd.com/fd/promote/leeenx/raq/20151002/10.png)
+![无描边的按钮](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/10.png)
 
 ##SNS活动的状态标题不要使用文字描边
 
@@ -61,7 +61,7 @@ SNS活动的有很多状态标题，与按钮类似，必须做成活字。SNS�
 
 以下是ZUK手机的视觉稿：
 
-![描边的标题](//jdc.jd.com/fd/promote/leeenx/raq/20151002/11.png)
+![描边的标题](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/11.png)
 
 描边的构建稿：
 
@@ -73,11 +73,11 @@ SNS活动的有很多状态标题，与按钮类似，必须做成活字。SNS�
 
 有时为了增加页面的质感，设计时可能会使用一些背景来增加效果。如下：
 
-![数码校园行](//jdc.jd.com/fd/promote/leeenx/raq/20151002/13.png)
+![数码校园行](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/13.png)
 
 此时，需要提供可以用平无缝平铺的背景块，如下：
 
-![数码校园行](//jdc.jd.com/fd/promote/leeenx/raq/20151002/14.png)
+![数码校园行](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/14.png)
 
 如果无法提供可以用于无缝平铺的背景块，最好避免使用类似的背景而干脆使用纯色好了。不然重构的同学只能随机地提取一小块背景来作平铺了，这样很难确保背景可以无缝平铺。
 
@@ -87,11 +87,11 @@ SNS活动的有很多状态标题，与按钮类似，必须做成活字。SNS�
 
 背景平滑过渡如下：
 
-![618期间的礼包页面](//jdc.jd.com/fd/promote/leeenx/raq/20151002/19.png)
+![618期间的礼包页面](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/19.png)
 
 背景没有平滑过渡如下：
 
-![双十一10月分互动页面的长背景](//jdc.jd.com/fd/promote/leeenx/raq/20151002/20.png)
+![双十一10月分互动页面的长背景](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/20.png)
 
 尽量避免不平滑过渡的背景。
 
@@ -111,21 +111,21 @@ SNS活动的有很多状态标题，与按钮类似，必须做成活字。SNS�
 
 例如，清凉节的风扇阴影是使用`正片叠底`，在PSD上看如下：
 
-![清凉节图片1](//jdc.jd.com/fd/promote/leeenx/raq/20151002/21.jpg)
+![清凉节图片1](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/21.jpg)
 
 提取后，在重构稿上看：
 
-![清凉节图片2](//jdc.jd.com/fd/promote/leeenx/raq/20151002/22.jpg)
+![清凉节图片2](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/22.jpg)
 
 原来黄色的阴影变成灰色了！！！尽量跟视觉稿有明显出入，但是还算是影响不大。。
 
 下面是双十一11月互动活动，使用`滤色`来做光晕，在PSD上看：
 
-![双十一11月互动活动图片1](//jdc.jd.com/fd/promote/leeenx/raq/20151002/1.png)
+![双十一11月互动活动图片1](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/1.png)
 
 提取出来的光晕：
 
-![双十一11月互动活动图片1](//jdc.jd.com/fd/promote/leeenx/raq/20151002/2.png)
+![双十一11月互动活动图片1](http://jdc.jd.com/fd/promote/leeenx/raq/20151002/2.png)
 
 提取出来的光晕根本就没办法使用了！！！！
 
