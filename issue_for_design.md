@@ -144,15 +144,16 @@ SNS活动的有很多状态标题，与按钮类似，必须做成活字。SNS�
 
 ## 同规格元素集合
 
-同规格（尺寸一样）元素集合PSD文档，建议提供排列整齐的文档，一来好看，二来重构同学比较省事。
+同规格（尺寸一样）元素集合PSD文档，建议提供排列整齐的文档：每行每列间距一样。
+一来好看，二来重构同学比较省事。
 
 下图是重构同学希望得到的：
 
-![整齐的](http://jdc.jd.com/fd/promote/201512/shake2016/images/keyword-s4a2ea91809.png)
+![整齐的](http://jdc.jd.com/fd/promote/leeenx/raq/20160301-1.jpg)
 
 下图是重构同学不希望得到的：
 
-![不整齐的](http://jdc.jd.com/fd/promote/201512/shake2016/images/keyword-s4a2ea91809.png)
+![不整齐的](http://jdc.jd.com/fd/promote/leeenx/raq/20160301-2.jpg)
 
 
 
