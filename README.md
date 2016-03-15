@@ -263,3 +263,23 @@ css/html的命名规范请参考：http://aotu.io/guide/docs/name/htmlcss.html
 ## 代码提交
 
 下班前，必须把手头上的项目提交到SVN上。
+
+## 统一常见sass函数
+
+px转rem统一使用函数名：pxTorem。使用以下函数：
+
+```sass
+@function pxTorem($px) {
+    @if $px == 0 {
+        @return 0;
+    }
+    @else {
+        @return $px / 40 * 1rem;
+    }
+
+}
+```
+
+
+
+
