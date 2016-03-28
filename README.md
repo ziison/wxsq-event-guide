@@ -311,7 +311,7 @@ px转rem统一使用函数名：pxTorem。使用以下函数：
 多行文本截断mixin: lineclamp。使用以下代码
 
 ```sass
-@mixin lineclamp($line){
+@mixin lineclamp($line:1){
     @if $line==0{
         //一行
         $line:1;
