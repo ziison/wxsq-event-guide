@@ -312,7 +312,7 @@ px转rem统一使用函数名：pxTorem。使用以下函数：
 
 ```sass
 @mixin lineclamp($line:1){
-    @if $line==0{
+    @if $line<=0{
         //一行
         $line:1;
     }
