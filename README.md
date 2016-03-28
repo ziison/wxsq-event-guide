@@ -48,7 +48,8 @@
 
 - 页面的尺寸适配统一使用 `REM` 来完成。与前端开发配合时，可以辅助地使用 `zoom`/`scale` 。
 - `320px`宽度下，`<html>`节点的`font-size`为`20px`
-- reset-sass common-sass ---- 统一使用一个库
+- reset-sass ---- 统一的重置样式库
+- common-sass ---- 统一共同sass库
 
 
 ## 统一运营活动的头部格式
@@ -264,7 +265,7 @@ css/html的命名规范请参考：http://aotu.io/guide/docs/name/htmlcss.html
 
 下班前，必须把手头上的项目提交到SVN上。
 
-## 统一常见sass函数
+## 统一常见sass函数名/mixin名
 
 px转rem统一使用函数名：pxTorem。使用以下函数：
 
@@ -274,9 +275,52 @@ px转rem统一使用函数名：pxTorem。使用以下函数：
         @return 0;
     }
     @else {
-        @return $px / 40 * 1rem;
+        @return $px / ($px * 0 + 1) / 40 * 1rem;
     }
 
+}
+```
+
+雪碧图mixin：s2b。使用以下代码：
+```sass
+//compass 二倍图转rem
+@mixin s2b($sprite, $name, $toRem:true) {
+    $width: ceil(image-width(sprite-file($sprite, $name)) / 2);
+    $height: ceil(image-height(sprite-file($sprite, $name)) / 2);
+    $pos_x: floor(nth(sprite-position($sprite, $name), 1) / 2);
+    $pos_y: floor(nth(sprite-position($sprite, $name), 2) / 2);
+    
+    $size_w: ceil(image-width(sprite-path($sprite)) / 2);
+    $size_h: ceil(image-height(sprite-path($sprite)) / 2);
+    @if $toRem {
+        $pos_x: pxTorem($pos_x);
+        $pos_y: pxTorem($pos_y);
+        $width: pxTorem($width);
+        $height: pxTorem($height);
+        $size_w: pxTorem($size_w);
+        $size_h: pxTorem($size_h);
+    }
+    
+    background: sprite-url($sprite) no-repeat $pos_x $pos_y;
+    background-size: $size_w $size_h;
+    height: $height;
+    width: $width;
+}
+```
+
+多行文本截断mixin: lineclamp。使用以下代码
+
+```sass
+@mixin lineclamp($line){
+    @if $line==0{
+        //一行
+        $line:1;
+    }
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 ```
 
