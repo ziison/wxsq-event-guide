@@ -1,0 +1,50 @@
+@import "compass/utilities/sprites";
+
+//pxTorem
+@function pxTorem($px) {
+    @if $px == 0 {
+        @return 0;
+    }
+    @else {
+        @return $px / ($px * 0 + 1) / 40 * 1rem;
+    }
+
+}
+
+@mixin lineclamp($line:1){
+    @if $line<=0{
+        //一行
+        $line:1;
+    }
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+//compass 二倍图转rem
+@mixin s2b($sprite, $name, $toRem:true) {
+    $width: ceil(image-width(sprite-file($sprite, $name)) / 2);
+    $height: ceil(image-height(sprite-file($sprite, $name)) / 2);
+    $pos_x: floor(nth(sprite-position($sprite, $name), 1) / 2);
+    $pos_y: floor(nth(sprite-position($sprite, $name), 2) / 2);
+    
+    $size_w: ceil(image-width(sprite-path($sprite)) / 2);
+    $size_h: ceil(image-height(sprite-path($sprite)) / 2);
+    @if $toRem {
+        $pos_x: pxTorem($pos_x);
+        $pos_y: pxTorem($pos_y);
+        $width: pxTorem($width);
+        $height: pxTorem($height);
+        $size_w: pxTorem($size_w);
+        $size_h: pxTorem($size_h);
+    }
+    
+    background: sprite-url($sprite) no-repeat $pos_x $pos_y;
+    background-size: $size_w $size_h;
+    height: $height;
+    width: $width;
+}
+
+
