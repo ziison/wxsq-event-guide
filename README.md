@@ -324,6 +324,12 @@ px转rem统一使用函数名：pxTorem。使用以下函数：
 }
 ```
 
+IOS毛玻璃效果mixin: blur。使用以下代码
+```sass
+@mixin blur($px) {
+	 -webkit-backdrop-filter: blur($px);
+}
+```
 
 
 
