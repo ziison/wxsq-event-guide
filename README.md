@@ -74,7 +74,7 @@
     var o2_resize=function(){
         var cw,ch;
         if(document&&document.documentElement){
-            cw=document.documentElement.clientWidth||document.body.clientWidth,ch= document.documentElement.clientHeight || document.body.clientHeight;
+            cw=document.documentElement.clientWidth,ch=document.documentElement.clientHeight;
         }
         if(!cw||!ch){
             if(window.localStorage["o2-cw"]&&window.localStorage["o2-ch"]){
@@ -101,7 +101,6 @@
     };
     o2_resize();//立即初始化
     window.addEventListener("resize",o2_resize);
-}();
 </script>
 
 </head>
@@ -133,9 +132,9 @@
     <%# 标题 %>
     <title><%= title %></title>
     <%# 循环输出传入的参数 %>
-  	<% for(var i=0; i<css.length; i++) {%>
-  		<link rel="stylesheet" type="text/css" href="<%= css[i] %>">
-  	<% } %>
+    <% for(var i=0; i<css.length; i++) {%>
+        <link rel="stylesheet" type="text/css" href="<%= css[i] %>">
+    <% } %>
 </head>
 <script type="text/javascript">
 !function(){
@@ -144,19 +143,32 @@
     var o2_resize=function(){
         var cw,ch;
         if(document&&document.documentElement){
-            cw=document.documentElement.clientWidth||document.body.clientWidth,ch= document.documentElement.clientHeight || document.body.clientHeight;
-        }else if(window.localStorage["o2-cw"]&&window.localStorage["o2-ch"]){
-            cw=parseInt(window.localStorage["o2-cw"])||0,ch=parseInt(window.localStorage["o2-ch"])||0;
+            cw=document.documentElement.clientWidth,ch=document.documentElement.clientHeight;
         }
-        if(!cw||!ch)return ;//出错了
-        
+        if(!cw||!ch){
+            if(window.localStorage["o2-cw"]&&window.localStorage["o2-ch"]){
+                cw=parseInt(window.localStorage["o2-cw"]),ch=parseInt(window.localStorage["o2-ch"]);
+            }else{
+                chk_cw();//定时检查
+                return ;//出错了
+            }
+        }
+
         var zoom=maxWidth&&maxWidth<cw?maxWidth/320:cw/320,zoomY=ch/504;
         window.localStorage["o2-cw"]=cw,window.localStorage["o2-ch"]=ch;
         <% if(fixIP5==1) {%>zoom=Math.min(zoom,zoomY);<%}%>
         <% if(zoom==1 || scale==1){ %>window.zoom=window.o2Zoom=zoom;<%}%>
         document.getElementById("o2HtmlFontSize").innerHTML='<% if(rem==1){ %>html{font-size:'+(zoom*20)+'px;}<%}%><% if(zoom==1){ %>.o2-zoom,.zoom{zoom:'+(zoom/2)+';}<%}%><%if(scale==1){ %>.o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}<%}%>';
+    },
+    siv,
+    chk_cw=function(){
+        if(siv)return ;//已经存在
+        siv=setInterval(function(){
+            //定时检查
+            document&&document.documentElement&&document.documentElement.clientWidth&&document.documentElement.clientHeight&&(o2_resize(),clearInterval(siv),siv=undefined);
+        },100);
     };
-    document&&document.documentElement ? o2_resize() : setTimeout(o2_resize,500);
+    o2_resize();//立即初始化
     window.addEventListener("resize",o2_resize);
 }();
 </script>
@@ -351,6 +363,16 @@ IOS毛玻璃效果mixin: blur。使用以下代码
 	 -webkit-backdrop-filter: blur($px);
 }
 ```
+
+## TAB标准
+
+
+
+
+
+
+
+
 
 
 
