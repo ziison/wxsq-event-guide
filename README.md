@@ -224,8 +224,6 @@ a,body {
 
 body {
 	margin: 0 auto;
-	min-width: 20pc;
-	max-width: 40pc;
 	height: 100%;
 	font-size: 14px;
 	font-family: Helvetica,STHeiti STXihei,Microsoft JhengHei,Microsoft YaHei,Arial;
