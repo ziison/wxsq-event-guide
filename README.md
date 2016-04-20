@@ -356,6 +356,19 @@ px转rem统一使用函数名：pxTorem。使用以下函数：
     text-overflow: ellipsis;
 }
 ```
+
+## 页面结构标准
+
+每一个页面的只存在一个根节点 `class="wrapper"` 或 `class="wrap"`，并为这个节点强制添加以下样式：
+
+```css
+.wrapper{
+	width: pxTorem(640px);
+	height: auto;//如果没有高度限制，使用auto
+	overflow: hidden;//必选
+}
+```
+
 ## 弹窗和引导分享的蒙层添加毛玻璃效果
 
 ios8.x以后的 safari支持毛玻璃效果，建议统一加透明蒙层添加毛玻璃效果。
