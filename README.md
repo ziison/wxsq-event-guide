@@ -356,17 +356,57 @@ px转rem统一使用函数名：pxTorem。使用以下函数：
     text-overflow: ellipsis;
 }
 ```
+## 弹窗和引导分享的蒙层添加毛玻璃效果
 
-IOS毛玻璃效果mixin: blur。使用以下代码
+ios8.x以后的 safari支持毛玻璃效果，建议统一加透明蒙层添加毛玻璃效果。
+
+以下是毛玻璃的mixin: blur。使用以下代码
 ```sass
-@mixin blur($px) {
+@mixin blur($px:4px) {
 	 -webkit-backdrop-filter: blur($px);
 }
 ```
 
 ## TAB标准
 
+吸顶或吸底的TAB都需要做一个点位的节点。采用以下标准：
 
+```html
+<div class="Tabs">
+	<nav>
+		<a href="#">TAB</a>
+		<a href="#">TAB</a>
+		<a href="#">TAB</a>
+		<a href="#">TAB</a>
+	</nav>
+</div>
+```
+结构：
+
+占位节点
+    └── TAB容器
+  	├── TAB1
+  	├── TAB2
+  	├──  ...
+  	└── TABn
+
+## 活动规则弹窗
+
+活动规则弹窗，如果视觉稿对滚动条没有做定制，统一为活动规则的容器添加弹性滚动的样式：
+
+```css
+-webkit-overflow-scrolling:touch;
+```
+
+如果有滚动条定制需求，由于上述代码会与滚动条css冲突，所以定制滚动的情况下不添加弹性滚动。如下：
+
+```css
+/*定制滚动条*/
+::-webkit-scrollbar{width:pxTorem(6px); height:pxTorem(4px);}
+::-webkit-scrollbar-button{width:0;height:0;}
+::-webkit-scrollbar-corner{display:block; }
+::-webkit-scrollbar-thumb{background-clip:padding-box;background-color:#ffffff;}
+```
 
 
 
