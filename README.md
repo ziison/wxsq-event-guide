@@ -74,7 +74,7 @@
     var o2_resize=function(){
         var cw,ch;
         if(document&&document.documentElement){
-            cw=document.documentElement.clientWidth,ch=document.documentElement.clientHeight;
+            cw=document.documentElement.clientWidth||document.body.clientWidth,ch= document.documentElement.clientHeight || document.body.clientHeight;
         }
         if(!cw||!ch){
             if(window.localStorage["o2-cw"]&&window.localStorage["o2-ch"]){
@@ -101,6 +101,7 @@
     };
     o2_resize();//立即初始化
     window.addEventListener("resize",o2_resize);
+}();
 </script>
 
 </head>
