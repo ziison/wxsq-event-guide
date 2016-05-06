@@ -416,12 +416,12 @@ px转rem统一使用函数名：pxTorem。使用以下函数：
     $size_w: ceil(image-width(sprite-path($sprite)) / 2);
     $size_h: ceil(image-height(sprite-path($sprite)) / 2);
     @if $toRem {
-        $pos_x: pxTorem($pos_x);
-        $pos_y: pxTorem($pos_y);
-        $width: pxTorem($width);
-        $height: pxTorem($height);
-        $size_w: pxTorem($size_w);
-        $size_h: pxTorem($size_h);
+        $pos_x: pxTorem(floor(nth(sprite-position($sprite, $name), 1)));
+        $pos_y: pxTorem(floor(nth(sprite-position($sprite, $name), 2)));
+        $width: pxTorem(ceil(image-height(sprite-file($sprite, $name))));
+        $height: pxTorem(ceil(image-height(sprite-file($sprite, $name))));
+        $size_w: pxTorem(ceil(image-width(sprite-path($sprite))));
+        $size_h: pxTorem(ceil(image-height(sprite-path($sprite))));
     }
 
     background-position: $pos_x $pos_y;
