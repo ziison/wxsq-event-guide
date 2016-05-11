@@ -69,12 +69,12 @@
   	
 <script type="text/javascript">
 !function(){
-    var maxWidth=640;
+    var maxWidth=768;
     document.write('<style id="o2HtmlFontSize"></style>');
     var o2_resize=function(){
         var cw,ch;
         if(document&&document.documentElement){
-            cw=document.documentElement.clientWidth||document.body.clientWidth,ch= document.documentElement.clientHeight || document.body.clientHeight;
+            cw=document.documentElement.clientWidth,ch=document.documentElement.clientHeight;
         }
         if(!cw||!ch){
             if(window.localStorage["o2-cw"]&&window.localStorage["o2-ch"]){
@@ -85,9 +85,9 @@
             }
         }
 
-        var zoom=maxWidth&&maxWidth<cw?maxWidth/320:cw/320,zoomY=ch/504;
+        var zoom=maxWidth&&maxWidth<cw?maxWidth/375:cw/375,zoomY=ch/603;//由ip6 weChat
         window.localStorage["o2-cw"]=cw,window.localStorage["o2-ch"]=ch;
-        
+        //zoom=Math.min(zoom,zoomY);//保证ip6 wechat的显示比率
         window.zoom=window.o2Zoom=zoom;
         document.getElementById("o2HtmlFontSize").innerHTML='html{font-size:'+(zoom*20)+'px;}.o2-zoom,.zoom{zoom:'+(zoom/2)+';}.o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}';
     },
