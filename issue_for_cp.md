@@ -1,17 +1,16 @@
 # 京东购物H5活动CP重构规范
-## 一、规范背景
 
-随着京东微信手q业务发展，H5营销活动页面需求量急增，部分业务需要外接给CP处理，但鉴于CP开发能力良莠不齐，为此制定京东购物H5活动CP重构规范，旨在统一CP开发人员的编码规范、提高代码质量，方便后期协作，提高开发效率。
+京东购物H5活动CP重构规范，旨在统一CP开发人员的编码规范、提高代码质量，方便后期协作，提高开发效率。
 
->提示：初次阅读者请务必认真阅读本文，谢谢合作。在页面重构启动前，请先认真查看需求文档、页面交互图以及设计规范，充分了解需求后，再与需求方确认会出现页面业务逻辑场景（特别注意各种弹窗、浮层、模块状态等情况），避免页面最终交付时产生缺失，减少开发过程中的不必要的反复修改。
+>提示：初次阅读者请务必认真阅读本文。在页面重构启动前，请先认真查看需求文档、页面交互图以及设计规范，充分了解需求后，再与需求方确认会出现页面业务逻辑场景（特别注意各种弹窗、浮层、模块状态等情况），避免页面最终交付时产生缺失，减少开发过程中的不必要的反复修改。
 
-## 二、页面视觉输出标准
+## 一、页面视觉输出标准
 
-目前，活动页面将采用750px的视觉设计稿输出，以iPhone6 WeChat页面为基准，全面采用`rem`单位构建页面布局。
+目前，活动页面采用750px的视觉设计稿输出，全面采用`rem`单位构建页面布局。
 
-`rem`布局标准指页面的尺寸适配统一使用REM来完成（各个模块尺寸、字体大小使用rem单位），根据页面有效宽度进行计算，调整 rem 的大小，动态缩放以达到适配的效果，部分场景可以结合使用zoom/scale。
+页面尺寸适配统一使用REM来完成（各个模块尺寸、字体大小使用rem单位），根据页面有效宽度进行计算，调整 rem 的大小，动态缩放以达到适配的效果，部分场景可以结合使用zoom/scale。
 
-## 三、开发工作流程
+## 二、开发工作流程
 
 ### 开发目录结构
 
@@ -26,15 +25,17 @@
 ```
 为方便快速开发，提供下载 [模块文件](http://jdc.jd.com/halo/cpguide/webapp.zip)
 
-### JS框架*
+### JS框架
 
 重构页面有涉及到脚本交互，需要使用JS框架请统一采用 `zepto.js`，引入如下CDN地址。
 
+生产阶段CDN地址，适用http协议：
 ```
-//生产阶段CDN地址，适用http协议
 <script src="http://wq.360buyimg.com/fd/promote/base/zepto.min.js"></script>
+```
 
-//交付阶段正式CDN地址，适用http协议、https协议
+交付阶段正式CDN地址，适用http协议、https协议：
+```
 <script src="//wq.360buyimg.com/fd/promote/base/zepto.min.js"></script>
 ```
 
@@ -43,11 +44,12 @@
 
 - 规定`375px`宽度下，`<html>`节点的`font-size`为`20px`
 
-使用过程中，可以手动转换模块尺寸到rem单位，
+使用过程中，可以手动转换模块尺寸到rem单位，也可以结合sass函数（推荐）。
 
 REM转换公式：
+
 ```
-    REM值 ＝ 750设计稿中模块实践尺寸／40
+    REM值 ＝ 750设计稿中模块实际尺寸／40
 ```
 
 若使用sass，则可参考如下转换函数：
@@ -169,15 +171,15 @@ input[type=text],textarea {
     appearance: none
 }
 ```
-## 四、常见业务编码注意规范
+## 三、业务编码规范
+### HTML/CSS的命名及书写规范
 
-基本的HTML/CSS的命名以及编写规范，请认真阅读、参考：[凹凸实验室前端编码规范](http://aotu.io/guide/docs/name/htmlcss.html)。
+基本的HTML/CSS的命名以及编写规范，请认真阅读、参考：[HTML/CSS命名规范](http://aotu.io/guide/docs/name/htmlcss.html)、[ClassName命名规范](http://aotu.io/guide/docs/name/classname.html)。
 
-此处主要规定开发过程中常见的、需特别注意的编码规范。
-
-### 统一使用`<div class="wrapper"></div>`做为根节点
+### 统一根节点
 
 强制使用`<div class="wrapper"></div>`做为根节点，每一个页面的只存在一个根节点 `class="wrapper"`：
+
 ```html
     <!-- S 页面内容 -->
     <div class="wrapper"> 包含住页面内容</div>
@@ -187,11 +189,11 @@ input[type=text],textarea {
 并为这个节点强制添加以下样式：
 
 ```css
-.wrapper {
+.wrapper{
     width: 18.75rem;  // 计算方式  750/40 ＝ 18.75rem
     height: auto;//如果没有高度限制，使用auto
     overflow: hidden;//必选
-    margin: 0 auto;
+    margin:0 auto;
 }
 ```
 
@@ -237,7 +239,7 @@ input[type=text],textarea {
     └── TABn
 </pre>
 
-### z-index使用范围
+### z-index规范
 
 页面中普通元素、floating、吸顶吸底、loading、分享蒙层常涉及到`z-index`的使用，为了防止`z-index`层级滥用影响性能，规定使用`z-index`最大值不得超过700。
 
@@ -248,11 +250,13 @@ input[type=text],textarea {
 - 弹窗z-index值须在201～300之间
 - loading和分享蒙层z-index值须在301～400之间
 
-### 关于1px像素的border
+### 1px像素边框
 
-不建议直接使用rem,而是直接使用1px，通过`transform:scale(.5)`进行缩放处理。
+不可直接使用rem,而是直接使用1px，通过`transform:scale(.5)`进行缩放处理。
 
 `示例：`
+
+![弹窗](http://jdc.jd.com/halo/cpguide/1border.png)
 
 ```
 .border:before {
@@ -290,8 +294,7 @@ input[type=text],textarea {
 ::-webkit-scrollbar-thumb{background-clip:padding-box;background-color:#ffffff;}
 ```
 
-## 五、交付注意点（非常重要）
-
+## 四、交付注意点（非常重要）
 ### 优惠券布局自适应以及券额占位
 
 #### 1.优惠券展示形式自适应
@@ -304,39 +307,35 @@ input[type=text],textarea {
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/halo/cpguide/coupon.png?ver=123)
+![弹窗](http://jdc.jd.com/halo/cpguide/coupon.png?ver=1234)
 
-### 产品模块链接点击区域
-
-产品模块链接通常是整块点击区域，并不是按钮区域，请特别注意。
+### 产品模块区域
+产品模块如含有按钮、领券、加入购物车等情况的，注意外层包裹以及内层元素不允许使用a标签，模块具体的点击区域务必与产品经理沟通清楚。
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/halo/cpguide/hot.png?ver=123)
+![弹窗](http://jdc.jd.com/halo/cpguide/hot.png?ver=1234)
 
 ### 固定角标元素
-
 模块含有固定角标元素的，均需要提供有固定角标和没有固定角标的多种样式展示。
 
 `示例：`
 
-![角标](http://jdc.jd.com/halo/cpguide/tag.jpg?ver=123)
+![角标](http://jdc.jd.com/halo/cpguide/tag.jpg?ver=1234)
 
 ### 多行文字模块定高问题
-
 模块存在多行文字情况，采用定高处理方式，溢出省略号，防止文字过少样式错乱，请特别注意。
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/halo/cpguide/txt.png?ver=123)
+![弹窗](http://jdc.jd.com/halo/cpguide/txt.png?ver=1234)
 
 ###  模块的状态切换
-
 凡涉及到商品列表售罄或其他状态，均需要提供齐全。
 
 `示例：`
 
-![商品状态](http://jdc.jd.com/halo/cpguide/pro.jpg?ver=123)
+![商品状态](http://jdc.jd.com/halo/cpguide/pro.jpg?ver=1234)
 
 ### 模块活字与图片的问题（涉及到文字部分尽量做成活字）
 
@@ -344,7 +343,7 @@ input[type=text],textarea {
 
 `示例：`
 
-![按钮](http://jdc.jd.com/halo/cpguide/button.jpg?ver=123)
+![按钮](http://jdc.jd.com/halo/cpguide/button.jpg?ver=1234)
 
 ### TAB的选中与非选中状态
 
@@ -352,7 +351,7 @@ input[type=text],textarea {
 
 `示例：`
 
-![按钮](http://jdc.jd.com/halo/cpguide/tab.jpg?ver=123)
+![按钮](http://jdc.jd.com/halo/cpguide/tab.jpg?ver=1234)
 
 ```
 
@@ -378,7 +377,8 @@ input[type=text],textarea {
 
 `示例：`
 
-![吸顶部分](http://jdc.jd.com/halo/cpguide/nav.png?ver=123)
+![吸顶部分](http://jdc.jd.com/halo/cpguide/nav.png?ver=1234)
+
 ```
 <!--S sns菜单 -->
 <!-- 开发注意吸顶类 fix_sns_menu -->
@@ -407,7 +407,8 @@ input[type=text],textarea {
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/halo/cpguide/tanchuang.png?ver=123)
+![弹窗](http://jdc.jd.com/halo/cpguide/tanchuang.png?ver=1234)
+
 > 提示：在页面重构启动前，先认真查看需求文档和页面交互图，充分了解需求后，再与需求方确认会出现那些浮层，避免页面最终交付时缺失相关浮层或状态。
 
 ### 局部滚动区域
@@ -415,9 +416,9 @@ input[type=text],textarea {
 
 `示例：`
 
-![局部滚动](http://jdc.jd.com/halo/cpguide/guen.jpg?ver=123)
+![局部滚动](http://jdc.jd.com/halo/cpguide/guen.jpg)
 
-## 六、页面性能要求
+## 五、页面性能要求
 
 ### 页面兼容的目标（机型/系统）
 
@@ -441,7 +442,7 @@ input[type=text],textarea {
 |图片 |   jpg、png | 尽量保持在 100 KB 左右| 单张图片尺寸不超过 2000x2000 像素 |
 |视频文件 | mov/mp4/avi | 暂无要求 | 分辨率>=960×540，视频码率>=1500kbps，<br />画面比例 4:3或16:9|
 
-### HTML,CSS,JS性能要求点
+### 其他性能要求点
 
 - HTML结构层级保持足够简单，标签嵌套不宜过深，尽量控制在 5 级内
 - 使用CSS3动画代替JS动画，CSS3动画常用属性：opacity，translate，rotate，scale，不使用伪类做动画处理
@@ -450,15 +451,16 @@ input[type=text],textarea {
 - css中 不使用@import
 - 避免使用CSS3渐变阴影效果，可考虑降级效果来提升流畅度
 
-## 七、页面交付基本原则
+## 六、页面交付基本原则
 
-- 1.开发目录结构须严格遵守
-- 2.交互页面稿须严格测试，性能要求达到第六大点提到的`页面性能要求`
-- 3.交互页面稿须认真参考第五大点提到的`交付注意点`，解决好常见的业务问题
-- 4.交互页面稿须展示清楚设计稿中含有的各种状态、业务场景，使用方式注释清晰明了
+- 1.开发目录结构须严格遵守，[模块文件](http://jdc.jd.com/halo/cpguide/webapp.zip)下载
+- 2.交付页面稿须严格测试，性能要求达到第五大点提到的`页面性能要求`
+- 3.交付页面稿中含有css以及js，须提交无压缩和压缩文件（如，style.css/style.min.css、index.js/index.min.js）
+- 4.交付页面稿须认真参考第四大点提到的`交付注意点`，解决好常见的业务问题
+- 5.交付页面稿须展示清楚设计稿中含有的各种状态、业务场景，使用方式注释清晰明了
 
 
-## 八、页面交付流程
+## 七、页面交付流程
 
 - CP须提供在线预览地址，让需求方扫描二维码体验确认
 - 需求方反馈问题和修改点，CP应及时修改反馈，之后待需求方再次确认
