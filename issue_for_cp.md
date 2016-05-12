@@ -300,7 +300,7 @@ input[type=text],textarea {
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/halo/cpguide/coupon.png)
+![弹窗](http://jdc.jd.com/halo/cpguide/coupon.png?ver=123)
 
 ### 产品模块链接点击区域
 
@@ -308,7 +308,7 @@ input[type=text],textarea {
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/halo/cpguide/hot.png)
+![弹窗](http://jdc.jd.com/halo/cpguide/hot.png?ver=123)
 
 ### 固定角标元素
 
@@ -316,7 +316,7 @@ input[type=text],textarea {
 
 `示例：`
 
-![角标](http://jdc.jd.com/halo/cpguide/tag.jpg)
+![角标](http://jdc.jd.com/halo/cpguide/tag.jpg?ver=123)
 
 ### 多行文字模块定高问题
 
@@ -324,7 +324,7 @@ input[type=text],textarea {
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/halo/cpguide/txt.png)
+![弹窗](http://jdc.jd.com/halo/cpguide/txt.png?ver=123)
 
 ###  模块的状态切换
 
@@ -332,7 +332,7 @@ input[type=text],textarea {
 
 `示例：`
 
-![商品状态](http://jdc.jd.com/halo/cpguide/pro.jpg)
+![商品状态](http://jdc.jd.com/halo/cpguide/pro.jpg?ver=123)
 
 ### 模块活字与图片的问题（涉及到文字部分尽量做成活字）
 
@@ -340,7 +340,7 @@ input[type=text],textarea {
 
 `示例：`
 
-![按钮](http://jdc.jd.com/halo/cpguide/button.jpg)
+![按钮](http://jdc.jd.com/halo/cpguide/button.jpg?ver=123)
 
 ### TAB的选中与非选中状态
 
@@ -348,7 +348,7 @@ input[type=text],textarea {
 
 `示例：`
 
-![按钮](http://jdc.jd.com/halo/cpguide/tab.jpg)
+![按钮](http://jdc.jd.com/halo/cpguide/tab.jpg?ver=123)
 
 ```
 
@@ -374,7 +374,7 @@ input[type=text],textarea {
 
 `示例：`
 
-![吸顶部分](http://jdc.jd.com/halo/cpguide/nav.png)
+![吸顶部分](http://jdc.jd.com/halo/cpguide/nav.png?ver=123)
 ```
 <!--S sns菜单 -->
 <!-- 开发注意吸顶类 fix_sns_menu -->
@@ -403,7 +403,7 @@ input[type=text],textarea {
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/halo/cpguide/tanchuang.png)
+![弹窗](http://jdc.jd.com/halo/cpguide/tanchuang.png?ver=123)
 > 提示：在页面重构启动前，先认真查看需求文档和页面交互图，充分了解需求后，再与需求方确认会出现那些浮层，避免页面最终交付时缺失相关浮层或状态。
 
 ### 局部滚动区域
@@ -411,7 +411,7 @@ input[type=text],textarea {
 
 `示例：`
 
-![局部滚动](http://jdc.jd.com/halo/cpguide/guen.jpg)
+![局部滚动](http://jdc.jd.com/halo/cpguide/guen.jpg?ver=123)
 
 ## 六、页面性能要求
 
