@@ -6,13 +6,13 @@
 
 ## 一、页面视觉输出标准
 
-目前，活动页面采用750px的视觉设计稿输出，全面采用`rem`单位构建页面布局。
+- 活动页面采用750px的视觉设计稿输出，全面采用`rem`单位构建页面布局
 
-页面尺寸适配统一使用REM来完成（各个模块尺寸、字体大小使用rem单位），部分场景可以结合使用zoom/scale。
+- 以iPhone6 WeChat页面为基准
 
 ## 二、开发工作流程
 
-### 开发目录结构
+### 开发目录结构标准
 
 ```
  webapp/
@@ -25,19 +25,22 @@
 ```
 为方便快速开发，提供下载 [模块文件](http://jdc.jd.com/halo/cpguide/webapp.zip)
 
-### JS框架
+### JS框架标准
 
 重构页面有涉及到脚本交互，需要使用JS框架请统一采用 `zepto.js`，引入如下CDN地址。
 
-生产阶段CDN地址，适用http协议：
+生产阶段：
 ```
+//生产阶段CDN地址，适用http协议
 <script src="http://wq.360buyimg.com/fd/promote/base/zepto.min.js"></script>
 ```
 
-交付阶段正式CDN地址，适用http协议、https协议：
+交付阶段：
 ```
+//交付阶段正式CDN地址，适用http协议、https协议
 <script src="//wq.360buyimg.com/fd/promote/base/zepto.min.js"></script>
 ```
+
 
 
 ### REM标准换算
@@ -172,11 +175,18 @@ input[type=text],textarea {
 }
 ```
 ## 三、业务编码规范
-### HTML/CSS的命名及书写规范
+### 1.HTML/CSS的命名及书写规范
 
-基本的HTML/CSS的命名以及编写规范，请认真阅读、参考：[HTML/CSS命名规范](http://aotu.io/guide/docs/name/htmlcss.html)、[ClassName命名规范](http://aotu.io/guide/docs/name/classname.html)。
+1）HTML/CSS文件命名规范
 
-### 统一根节点
+确保文件命名总是以字母开头而不是数字，且字母一律小写，以下划线连接且不带其他标点符号，参考：[HTML/CSS文件命名规范](http://aotu.io/guide/docs/name/htmlcss.html)
+
+
+2）ClassName命名规范
+
+ClassName的命名应该尽量精短、明确，必须以字母开头命名，且全部字母为小写，单词之间统一使用下划线 “_” 连接，参考：[ClassName命名规范](http://aotu.io/guide/docs/name/classname.html)。
+
+### 2.唯一根节点
 
 强制使用`<div class="wrapper"></div>`做为根节点，每一个页面的只存在一个根节点 `class="wrapper"`：
 
@@ -197,7 +207,7 @@ input[type=text],textarea {
 }
 ```
 
-### 嵌套层级
+### 3.嵌套层级
 
 标签结构尽量简单，嵌套不宜过深，尽量控制在 5 级内。
 
@@ -215,11 +225,14 @@ input[type=text],textarea {
 </div>
 ```
 
-### TAB标准
+### 4.TAB标准
 
-吸顶或吸底的TAB须做一个占位的节点，规定`height`值。采用以下标准结构：
+1）吸顶或吸底的TAB状态需齐全
 
-结构：
+2）吸顶时需有占位处理。
+
+采用以下标准结构：
+
 <pre>
 占位节点  
     └── TAB容器  
@@ -242,24 +255,28 @@ input[type=text],textarea {
 </div>
 ```
 
-### z-index规范
+`示例：`
 
-页面中普通元素、floating、吸顶吸底、loading、分享蒙层常涉及到`z-index`的使用，为了防止`z-index`层级滥用影响性能，规定使用`z-index`最大值不得超过700。
+![吸顶部分](http://jdc.jd.com/halo/cpguide/nav.png?ver=1234)
 
-强烈建议`z-index`值参考如下规则范围：
+### 5.z-index标准
 
-- 普通元素z-index值须在0～100之间
-- floating和吸顶吸底模块z-index值须在101～200之间
-- 弹窗z-index值须在201～300之间
-- loading和分享蒙层z-index值须在301～400之间
+z-index最大值不得超过700
 
-### 1px像素边框
+z-index值参考如下范围：
 
-不可直接使用rem,而是直接使用1px，通过`transform:scale(.5)`进行缩放处理。
+- 普通元素：0～100之间
+- floating/吸顶/吸底：101～200之间
+- 弹窗：201～300之间
+- loading/分享蒙层：301～400之间
+
+### 6.1px像素边框
+
+不使用rem，直接使用1px，通过`transform:scale(.5)`进行缩放处理。
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/halo/cpguide/1border.png)
+![弹窗](http://jdc.jd.com/halo/cpguide/1border.png?ver=12345)
 
 ```
 .border:before {
@@ -279,7 +296,7 @@ input[type=text],textarea {
 }
 ```
 
-### 活动规则弹窗
+### 7.活动规则弹窗
 
 活动规则弹窗，如果视觉稿对滚动条没有做定制，则统一为活动规则的容器添加弹性滚动的样式：
 
@@ -297,58 +314,70 @@ input[type=text],textarea {
 ::-webkit-scrollbar-thumb{background-clip:padding-box;background-color:#ffffff;}
 ```
 
-## 四、交付注意点（非常重要）
-### 优惠券布局自适应以及券额占位
+## 四、交付要点（非常重要）
+### 1.优惠券
 
-#### 1.优惠券展示形式自适应
+#### 1）优惠券展示形式自适应
 
 常见优惠券，通常由2个到三个并列展示，但随着活动时间的推移，会出现优惠券的减少变成一个这类情况，因此，需要做自适应居中处理，构建稿需包含优惠券展示多种形式。
 
-#### 2.券额占位
+#### 2）券额占位
 
-通常优惠券的额度涉及到2位、3位或更多，务必参考标准，做好优惠券额度占位。
+优惠券额度通常涉及到2位、3位或更多，务必做好券额度占位，防止位数过多错位。
 
 `示例：`
 
 ![弹窗](http://jdc.jd.com/halo/cpguide/coupon.png?ver=1234)
 
-### 产品模块区域
-产品模块如含有按钮、领券、加入购物车等情况的，注意外层包裹以及内层元素不允许使用a标签，模块具体的点击区域务必与产品经理沟通清楚。
+### 2.商品模块
+
+1）整块点击
+
+商品模块外层包裹以及内层元素不允许使用a标签，模块具体的点击区域务必与产品经理沟通。
 
 `示例：`
 
 ![弹窗](http://jdc.jd.com/halo/cpguide/hot.png?ver=1234)
 
-### 固定角标元素
+2) 局部点击
+
+若单品内有按钮交互行为，如领券，按钮，则不允许使用a标签实现，可用span、i等标签代替。
+
+### 3.固定角标元素
 模块含有固定角标元素的，均需要提供有固定角标和没有固定角标的多种样式展示。
 
 `示例：`
 
 ![角标](http://jdc.jd.com/halo/cpguide/tag.jpg?ver=1234)
 
-### 多行文字模块定高问题
-模块存在多行文字情况，采用定高处理方式，溢出省略号，防止文字过少样式错乱，请特别注意。
+### 4.文字单行多行占位
+
+文字单行多行时，采用定高处理方式，溢出省略号，防止文字过少样式错乱，请特别注意。
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/halo/cpguide/txt.png?ver=1234)
+![弹窗](http://jdc.jd.com/halo/cpguide/txt.png?ver=12345)
 
-###  模块的状态切换
+### 5.模块活字与图片
+
+1) 凡文字部分尽量做成活字
+
+2) 常见按钮、小标题、商品说明等，须做成活字，且节点宽度自适应
+
+3) 艺术字体如主标题、slogan等明显需要艺术效果的可用图片代替
+
+`示例：`
+
+![按钮](http://jdc.jd.com/halo/cpguide/button.jpg?ver=1234)
+
+###  6.模块的状态切换
 凡涉及到商品列表售罄或其他状态，均需要提供齐全。
 
 `示例：`
 
 ![商品状态](http://jdc.jd.com/halo/cpguide/pro.jpg?ver=1234)
 
-### 模块活字与图片的问题（涉及到文字部分尽量做成活字）
-
-须认真审视设计稿，分辨出哪些地方活字处理，哪些地方需要图片代替（不可一味图方便简单图片处理），常见的按钮、标题这些，须尽量做成活字，宽度自适应，方便开发后期维护更改。
-
-`示例：`
-
-![按钮](http://jdc.jd.com/halo/cpguide/button.jpg?ver=1234)
-
-### TAB的选中与非选中状态
+### 7.TAB的选中与非选中状态
 
 常见的TAB多种状态，须在HTML代码注释中，标明选中与非选中状态时切换的class名称，使用方式说明清楚明了。
 
@@ -357,16 +386,17 @@ input[type=text],textarea {
 ![按钮](http://jdc.jd.com/halo/cpguide/tab.jpg?ver=1234)
 
 ```
-
 <div class="ft_nav_tab ">
-    <!-- 开发注意，选中态添加"on" -->
-   <a href="" class＝"on">手机数码</a>
-   <a href="">家电电器</a>
-   <a href="">潮流女包</a>
+    <div class="nav_tab_mod">
+        <!-- 开发注意，选中态添加"on" -->
+       <a href="" class＝"on">手机数码</a>
+       <a href="">家电电器</a>
+       <a href="">潮流女包</a>        
+    </div>
 </div>
 ```
 
-###  模块的显示和隐藏状态
+###  8.模块的显示和隐藏状态
 在HTML代码注释中，标明显示与隐藏状态时切换的class名称。
 ```
 <!-- 模块显示的class为"show" -->
@@ -375,46 +405,63 @@ input[type=text],textarea {
 </div>
 ```
 
-### 吸顶吸底元素
-含有需要吸顶的头部导航、吸顶菜单以及吸底模块，均需要提供齐全各种状态，且吸顶时需有占位处理。
+### 9.弹窗浮层
 
-`示例：`
+1）弹窗浮层罗列齐全
+页面含多种弹窗浮层，须标明清楚提供齐全，并统一写在页面上（建议新开页面专门写弹窗如alert.html）。如以下浮层：提示浮层、页面逻辑浮层、选择用户/地区浮层、活动规则浮层、操作反馈提示等
 
-![吸顶部分](http://jdc.jd.com/halo/cpguide/nav.png?ver=1234)
-
-```
-<!--S sns菜单 -->
-<!-- 开发注意吸顶类 fix_sns_menu -->
-<div class="sns_menu_wp fix_sns_menu">
-    <div class="sns_menu_mod">
-        <a href="#">品牌一</a>
-        <a href="#" class="on">品牌二</a>
-        <a href="#">品牌三</a>
-        <a href="#">品牌四</a>             
-        
-    </div>
-</div>
-<!--E sns菜单 -->
-
-<!-- S吸底类  -->
-<div class="fix_bot">
-    <a href="./mall.html">去卖场逛逛</a>
-    <a href="./share.html">分享给好友</a>
-</div>
-<!-- E吸底类  -->
-```
-
-### 弹窗浮层
-
-页面存在多种交互逻辑的，必须将业务涉及的弹窗浮层提供齐全，并统一写在页面上（建议新开页面专门写弹窗如alert.html）。如以下浮层：提示浮层、页面逻辑浮层、选择用户/地区浮层、活动规则浮层、操作反馈提示等
-
-`示例：`
+`示例1 弹窗：`
 
 ![弹窗](http://jdc.jd.com/halo/cpguide/tanchuang.png?ver=1234)
 
 > 提示：在页面重构启动前，先认真查看需求文档和页面交互图，充分了解需求后，再与需求方确认会出现那些浮层，避免页面最终交付时缺失相关浮层或状态。
 
-### 局部滚动区域
+`示例2 分享浮层：`
+
+![弹窗](http://jdc.jd.com/halo/cpguide/share.png)
+
+`示例3 返回顶部：`
+
+![弹窗](http://jdc.jd.com/halo/cpguide/top.png)
+
+结构：
+
+```
+<div class="ex_160425_7">
+    <!--返回顶部箭头-->
+    <img class="o2_backtop" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAoCAMAAAChHKjRAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTQ4NjVEQTU0MERDMTFFNUJERDFEM0ZEOUJFOTE2RkMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTQ4NjVEQTY0MERDMTFFNUJERDFEM0ZEOUJFOTE2RkMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1NDg2NURBMzQwREMxMUU1QkREMUQzRkQ5QkU5MTZGQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1NDg2NURBNDQwREMxMUU1QkREMUQzRkQ5QkU5MTZGQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PlO0CKoAAAAGUExURf///////1V89WwAAAACdFJOU/8A5bcwSgAAAH1JREFUeNrs0uEOgCAIBOC793/pWmQqHMZaP2XONv1McICFwDleoo5K131AdsEatTRWqCebo7GkDM2Fa2Sb15gVvCFAr+AN72lU8IZtHhS84fPpCt4QYikeEz+PCYg0Yymi4Pgo4ulCcwChcQwxQ0zaFyi070Yb/YlEHAIMAB6iBI03W6MyAAAAAElFTkSuQmCC">
+    
+</div>
+```
+样式：
+```
+.ex_160425_7 {
+  position: fixed;
+  bottom: 50px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  text-align: center;
+  font-size: 10px;
+  color: #fff;
+  line-height: 18px;
+  z-index: 4;
+}
+.ex_160425_7 .o2_backtop {
+  display: block;
+  width: 18px;
+  height: 20px;
+  margin: 10px auto;
+}
+```
+
+
+
+2）局部滚动区域
+
 针对如活动规则和一些内容比较多的区域，需要在当前页面内做局部滚动的，请勿遗漏。
 
 `示例：`
@@ -450,11 +497,10 @@ input[type=text],textarea {
 - HTML结构层级保持足够简单，标签嵌套不宜过深，尽量控制在 5 级内
 - 使用CSS3动画代替JS动画，CSS3动画常用属性：opacity，translate，rotate，scale，不使用伪类做动画处理
 - 尽可能少的使用CSS高级选择器与通配选择器
-- 页面中使用到z-index的值必须小于700，保持在100以内为宜
 - css中 不使用@import
 - 避免使用CSS3渐变阴影效果，可考虑降级效果来提升流畅度
 
-## 六、页面交付基本原则
+## 六、页面交付验收点
 
 - 1.开发目录结构须严格遵守，[模块文件](http://jdc.jd.com/halo/cpguide/webapp.zip)下载
 - 2.交付页面稿须严格测试，性能要求达到第五大点提到的`页面性能要求`
