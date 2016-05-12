@@ -217,7 +217,9 @@ input[type=text],textarea {
 
 ### TAB标准
 
-吸顶或吸底的TAB须做一个占位的节点，规定`height`值。采用以下标准：
+吸顶或吸底的TAB须做一个占位的节点，规定`height`值。采用以下标准结构：
+
+示例：
 
 ```html
 <div class="Tabs">
@@ -233,10 +235,10 @@ input[type=text],textarea {
 <pre>
 占位节点  
     └── TAB容器  
-    ├── TAB1  
-    ├── TAB2  
-    ├──  ...  
-    └── TABn
+            ├── TAB1  
+            ├── TAB2  
+            ├──  ...  
+            └── TABn
 </pre>
 
 ### z-index规范
