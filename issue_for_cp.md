@@ -247,12 +247,12 @@ input[type=text],textarea {
 
 1）HTML/CSS文件命名规范
 
-确保文件命名总是以字母开头而不是数字，且字母一律小写，以下划线连接且不带其他标点符号，更多信息参见：[凹凸实验室HTML/CSS文件命名规范](http://aotu.io/guide/docs/name/htmlcss.html)
+确保文件命名总是以字母开头而不是数字，且字母一律小写，以下划线连接且不带其他标点符号，更多信息参见：[凹凸实验室－－HTML/CSS文件命名规范](http://aotu.io/guide/docs/name/htmlcss.html)
 
 
 2）ClassName命名规范
 
-ClassName的命名应该尽量精短、明确，必须以字母开头命名，且全部字母为小写，单词之间统一使用下划线 “_” 连接，更多信息参见：[凹凸实验室ClassName命名规范](http://aotu.io/guide/docs/name/classname.html)。
+ClassName的命名应该尽量精短、明确，必须以字母开头命名，且全部字母为小写，单词之间统一使用下划线 “_” 连接，更多信息参见：[凹凸实验室－－ClassName命名规范](http://aotu.io/guide/docs/name/classname.html)。
 
 ### 2.唯一根节点
 
@@ -333,10 +333,10 @@ z-index最大值不得超过700。
 
 z-index值范围：
 
-- 普通元素：0～100之间
-- floating/吸顶/吸底：101～200之间
-- 弹窗：201～300之间
-- loading/分享蒙层：301～400之间
+- 普通元素：0～100
+- floating/吸顶/吸底：101～200
+- 弹窗：201～300
+- loading/分享蒙层：301～400
 
 ### 6.1px像素边框
 
@@ -596,14 +596,6 @@ css样式：
 - 需求方反馈问题和修改点，CP应及时修改反馈，之后待需求方再次确认
 - 直至页面全部完成后，将文件包邮件发送给需求方和相关开发人员
 - 开发过程中若缺失部分页面内容，CP应全力配合补全，直至页面上线
-
-
-
-
-
-
-
-
 
 
 
