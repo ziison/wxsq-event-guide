@@ -17,7 +17,7 @@
 
     5.统一的reset css
 
-三、业务编码规范
+三、编码规范
 
     1.HTML/CSS的命名及书写规范
 
@@ -72,7 +72,7 @@
 
 ## 一、页面视觉输出标准
 
-- 活动页面采用750px的视觉设计稿输出，全面采用`rem`单位构建页面布局
+- 活动页面采用750px的视觉设计稿输出，全部采用`rem`单位构建页面布局，部分场景结合使用`zoom/scale`
 
 - 以iPhone6 WeChat页面为基准
 
@@ -89,7 +89,7 @@
     ├── index.html
     └── other.html
 ```
-为方便快速开发，提供下载 [模块文件](http://jdc.jd.com/halo/cpguide/webapp.zip)
+下载 [模块文件](http://jdc.jd.com/halo/cpguide/webapp.zip)
 
 ### 2.JS框架
 
@@ -240,17 +240,17 @@ input[type=text],textarea {
     appearance: none
 }
 ```
-## 三、业务编码规范
+## 三、编码规范
 ### 1.HTML/CSS的命名及书写规范
 
 1）HTML/CSS文件命名规范
 
-确保文件命名总是以字母开头而不是数字，且字母一律小写，以下划线连接且不带其他标点符号，参考：[HTML/CSS文件命名规范](http://aotu.io/guide/docs/name/htmlcss.html)
+确保文件命名总是以字母开头而不是数字，且字母一律小写，以下划线连接且不带其他标点符号，更多信息参见：[凹凸实验室HTML/CSS文件命名规范](http://aotu.io/guide/docs/name/htmlcss.html)
 
 
 2）ClassName命名规范
 
-ClassName的命名应该尽量精短、明确，必须以字母开头命名，且全部字母为小写，单词之间统一使用下划线 “_” 连接，参考：[ClassName命名规范](http://aotu.io/guide/docs/name/classname.html)。
+ClassName的命名应该尽量精短、明确，必须以字母开头命名，且全部字母为小写，单词之间统一使用下划线 “_” 连接，更多信息参见：[凹凸实验室ClassName命名规范](http://aotu.io/guide/docs/name/classname.html)。
 
 ### 2.唯一根节点
 
