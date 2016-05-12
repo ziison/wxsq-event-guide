@@ -287,6 +287,7 @@ input[type=text],textarea {
 ```
 
 ## 五、交付注意点（非常重要）
+
 ### 优惠券布局自适应以及券额占位
 
 #### 1.优惠券展示形式自适应
@@ -302,23 +303,35 @@ input[type=text],textarea {
 ![弹窗](http://jdc.jd.com/halo/cpguide/coupon.png)
 
 ### 产品模块链接点击区域
+
 产品模块链接通常是整块点击区域，并不是按钮区域，请特别注意。
+
 `示例：`
+
 ![弹窗](http://jdc.jd.com/halo/cpguide/hot.png)
 
 ### 固定角标元素
+
 模块含有固定角标元素的，均需要提供有固定角标和没有固定角标的多种样式展示。
+
 `示例：`
+
 ![角标](http://jdc.jd.com/halo/cpguide/tag.jpg)
 
 ### 多行文字模块定高问题
+
 模块存在多行文字情况，采用定高处理方式，溢出省略号，防止文字过少样式错乱，请特别注意。
+
 `示例：`
+
 ![弹窗](http://jdc.jd.com/halo/cpguide/txt.png)
 
 ###  模块的状态切换
+
 凡涉及到商品列表售罄或其他状态，均需要提供齐全。
+
 `示例：`
+
 ![商品状态](http://jdc.jd.com/halo/cpguide/pro.jpg)
 
 ### 模块活字与图片的问题（涉及到文字部分尽量做成活字）
@@ -334,6 +347,7 @@ input[type=text],textarea {
 常见的TAB多种状态，须在HTML代码注释中，标明选中与非选中状态时切换的class名称，使用方式说明清楚明了。
 
 `示例：`
+
 ![按钮](http://jdc.jd.com/halo/cpguide/tab.jpg)
 
 ```
@@ -357,7 +371,9 @@ input[type=text],textarea {
 
 ### 吸顶吸底元素
 含有需要吸顶的头部导航、吸顶菜单以及吸底模块，均需要提供齐全各种状态，且吸顶时需有占位处理。
+
 `示例：`
+
 ![吸顶部分](http://jdc.jd.com/halo/cpguide/nav.png)
 ```
 <!--S sns菜单 -->
@@ -392,7 +408,9 @@ input[type=text],textarea {
 
 ### 局部滚动区域
 针对如活动规则和一些内容比较多的区域，需要在当前页面内做局部滚动的，请勿遗漏。
+
 `示例：`
+
 ![局部滚动](http://jdc.jd.com/halo/cpguide/guen.jpg)
 
 ## 六、页面性能要求
