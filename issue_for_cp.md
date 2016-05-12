@@ -219,6 +219,16 @@ input[type=text],textarea {
 
 吸顶或吸底的TAB须做一个占位的节点，规定`height`值。采用以下标准结构：
 
+结构：
+<pre>
+占位节点  
+    └── TAB容器  
+            ├── TAB1  
+            ├── TAB2  
+            ├──  ...  
+            └── TABn
+</pre>
+
 示例：
 
 ```html
@@ -231,15 +241,6 @@ input[type=text],textarea {
     </nav>
 </div>
 ```
-结构：
-<pre>
-占位节点  
-    └── TAB容器  
-            ├── TAB1  
-            ├── TAB2  
-            ├──  ...  
-            └── TABn
-</pre>
 
 ### z-index规范
 
