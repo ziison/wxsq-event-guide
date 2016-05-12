@@ -43,14 +43,14 @@
 
 - 规定`375px`宽度下，`<html>`节点的`font-size`为`20px`
 
-使用过程中，可以手动转换模块尺寸到rem单位，也可以结合sass函数（推荐）。
+使用过程中，可以手动转换模块尺寸到rem单位，
 
-适用REM转换公式：
+REM转换公式：
 ```
     REM值 ＝ 750设计稿中模块实践尺寸／40
 ```
 
-sass转换函数：
+若使用sass，则可参考如下转换函数：
 ```
 @function pxTorem($px) {
     @if $px == 0 {
@@ -171,23 +171,27 @@ input[type=text],textarea {
 ```
 ## 四、常见业务编码注意规范
 
-基本的HTML/CSS的命名以及编写规范，请认真阅读、参考：[凹凸实验室前端编码规范](http://aotu.io/guide/docs/name/htmlcss.html)。此处，主要规定开发活动页面过程中，常见的需特别注意的编码规范。
+基本的HTML/CSS的命名以及编写规范，请认真阅读、参考：[凹凸实验室前端编码规范](http://aotu.io/guide/docs/name/htmlcss.html)。
+
+此处主要规定开发过程中常见的、需特别注意的编码规范。
 
 ### 统一使用`<div class="wrapper"></div>`做为根节点
 
-强制使用`<div class="wrapper"></div>`做为根节点，每一个页面的只存在一个根节点 `class="wrapper"`，并为这个节点强制添加以下样式：
+强制使用`<div class="wrapper"></div>`做为根节点，每一个页面的只存在一个根节点 `class="wrapper"`：
 ```html
     <!-- S 页面内容 -->
     <div class="wrapper"> 包含住页面内容</div>
     <!-- E 页面内容 -->
 ```
 
+并为这个节点强制添加以下样式：
+
 ```css
-.wrapper{
+.wrapper {
     width: 18.75rem;  // 计算方式  750/40 ＝ 18.75rem
     height: auto;//如果没有高度限制，使用auto
     overflow: hidden;//必选
-    margin:auto 0;
+    margin: 0 auto;
 }
 ```
 
@@ -270,13 +274,13 @@ input[type=text],textarea {
 
 ### 活动规则弹窗
 
-活动规则弹窗，如果视觉稿对滚动条没有做定制，统一为活动规则的容器添加弹性滚动的样式：
+活动规则弹窗，如果视觉稿对滚动条没有做定制，则统一为活动规则的容器添加弹性滚动的样式：
 
 ```css
 -webkit-overflow-scrolling:touch;
 ```
 
-如果有滚动条定制需求，由于上述代码会与滚动条css冲突，所以定制滚动的情况下不添加弹性滚动。如下：
+如果有滚动条定制需求，由于上述代码会与滚动条css冲突，所以定制滚动的情况下不添加弹性滚动。如下是一个滚动条样式参考：
 
 ```css
 /*定制滚动条*/
