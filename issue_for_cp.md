@@ -19,7 +19,7 @@
 
 三、编码规范
 
-    1.HTML/CSS命名规范
+    1.命名规范
 
     2.唯一根节点
 
@@ -35,33 +35,34 @@
 
 四、交付要点（非常重要）
 
-    1.优惠券
+    1. 优惠券
 
-    2.商品模块
+    2. 商品模块
 
-    3.固定角标元素
+    3. 固定角标元素
 
-    4.文字单行多行占位
+    4. 文字单行多行占位
 
-    5.模块活字与图片
+    5. 模块活字与图片
 
-    6.模块的状态切换
+    6. 模块的状态切换
 
-    7.TAB的选中与非选中状态
+    7. TAB的选中与非选中状态
 
-    8.模块的显示和隐藏状态
+    8. 模块的显示和隐藏状态
 
-    9.弹窗
+    9. 弹窗
 
-    10.浮层
+    10. 分享蒙层
+    11. floating
 
 五、页面性能要求
 
-    1.页面兼容的目标（机型/系统）
+    1. 页面兼容的目标（机型/系统）
 
-    2.加载速度、请求数与资源压缩
+    2. 加载速度、请求数与资源压缩
 
-    3.其他性能要求点
+    3. 其他性能要求点
 
 六、页面交付验收点
 
@@ -74,7 +75,11 @@
 
 ## 一、页面视觉输出标准
 
-活动页面采用750px的视觉设计稿输出，全部采用`rem`单位构建页面布局，部分场景结合使用`zoom/scale`参考[demo](http://jdc.jd.com/halo/cpguide/scale/)。
+1）视觉稿全部采用宽度750px标准
+2) 构建稿全部使用`rem`
+3) 部分场景（如逐帧动画）可结合`scale`完成。
+
+参考[demo](http://jdc.jd.com/halo/cpguide/scale/)。
 
 ## 二、开发工作流程
 
@@ -241,9 +246,9 @@ input[type=text],textarea {
 }
 ```
 ## 三、编码规范
-### 1.HTML/CSS命名规范
+### 命名规范
 
-1）HTML/CSS文件命名规范
+1）文件命名规范
 
 确保文件命名总是以字母开头而不是数字，且字母一律小写，以下划线连接且不带其他标点符号，更多信息参见：[凹凸实验室--HTML/CSS文件命名规范](http://aotu.io/guide/docs/name/htmlcss.html)
 
@@ -275,7 +280,7 @@ ClassName的命名应该尽量精短、明确，必须以字母开头命名，�
 
 ### 3.嵌套层级
 
-标签结构尽量简单，嵌套不宜过深，尽量控制在 5 级内。
+标签嵌套层级必须控制在 5层以内。
 
 ```
 <div class="level1">
@@ -293,11 +298,11 @@ ClassName的命名应该尽量精短、明确，必须以字母开头命名，�
 
 ### 4.TAB标准
 
-1）吸顶或吸底的TAB状态需齐全
+1）确保TAB状态需齐全
 
-2）吸顶时需有占位处理。
+2）吸顶、吸底时需有占位处理。
 
-采用以下标准结构：
+3) 采用以下标准结构：
 
 <pre>
 占位节点  
@@ -329,14 +334,14 @@ ClassName的命名应该尽量精短、明确，必须以字母开头命名，�
 
 z-index最大值不得超过700。
 
-z-index值范围：
+z-index取值范围：
 
 - 普通元素：0～100
 - floating/吸顶/吸底：101～200
 - 弹窗：201～300
 - loading/分享蒙层：301～400
 
-### 6.1px像素边框
+### 6. 1px像素边框
 
 不使用rem，直接使用1px，通过`transform:scale(.5)`进行缩放处理。
 
@@ -364,7 +369,7 @@ z-index值范围：
 }
 ```
 
-### 7.活动规则弹窗
+### 7. 活动规则弹窗
 
 活动规则弹窗，如果视觉稿对滚动条没有做定制，则统一为活动规则的容器添加弹性滚动的样式：
 
@@ -387,27 +392,29 @@ z-index值范围：
 
 #### 1）优惠券展示形式自适应
 
-优惠券通常由2个到三个并列展示，需做自适应居中处理，并包含优惠券展示多种形式，参见示例截图。
+优惠券通常由2个到三个并列展示，需做自适应居中处理，并包含优惠券展示多种形式，参见【优惠券截图】。
 
 #### 2）券额占位
 
-优惠券额度通常涉及到2位、3位或更多，务必做好券额度占位，防止位数过多错位，参见示例截图。
+优惠券额度通常涉及到2位、3位或更多，务必做好券额度占位，防止位数过多错位，参见【优惠券截图】。
 
 `示例：`
 
 ![弹窗](http://jdc.jd.com/halo/cpguide/coupon.png?ver=1234)
+【优惠券截图】
 
-### 2.商品模块
+### 2.商品列表
 
-商品模块外层包裹以及内层元素不允许使用a标签，模块具体的点击区域务必与产品经理沟通。
+商品列表内的所有节点不允许使用 `<a></a>`。
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/halo/cpguide/hot.png?ver=1234)
+![弹窗](http://jdc.jd.com/fd/promote/leeenx/floating.png)
 
 
-### 3.固定角标元素
-固定角标元素，均需要提供有固定角标和没有固定角标的多种样式展示。
+### 3. 角标
+
+带角标模块需要在构建稿上展示**带角标**和**不带角标**的状态
 
 `示例：`
 
@@ -470,9 +477,9 @@ z-index值范围：
 
 ### 9.弹窗
 
-1）弹窗状态齐全
+1）弹窗聚合展示
 
-页面含多种弹窗，须标明清楚提供齐全，并统一写在页面上（建议新开页面专门写弹窗如alert.html）。如以下浮层：提示弹窗、页面逻辑弹窗、选择用户/地区弹窗、活动规则弹窗、操作反馈提示弹窗等
+所有类型弹窗聚合在 `alert.html` 中展示，并做好相关注释。
 
 `示例：`
 
@@ -488,57 +495,46 @@ z-index值范围：
 
 ![局部滚动](http://jdc.jd.com/halo/cpguide/guen.jpg)
 
-### 10.浮层
+### 10. 分享蒙层
 
-1）分享蒙层
+所有的分享蒙层统一在 `share.html` 中展示，并做好相关注释。
 
-须分享的活动页面，分享浮层不能遗漏。
+多蒙层注释参考如下：
+
+```html
+<!--S 微信分享蒙层-->
+<div class="wx_share_mask">
+    <div class="share_tips"></div>
+</div>
+<!--E 微信分享蒙层-->
+<!--S 手Q分享蒙层-->
+<div class="sq_share_mask" style="display: none">
+    <div class="share_tips"></div>
+</div>
+<!--E 手Q分享蒙层-->
+```
 
 ![弹窗](http://jdc.jd.com/halo/cpguide/share.png?ver=123)
 
-2）floating
+### 11. floating
 
-卖场页面须含返回顶部floating。
+1) 返回顶部
 
-`示例：`
+卖场页面必须自带 **返回顶部** floating。
+
+示例：
 
 ![弹窗](http://jdc.jd.com/halo/cpguide/top.png)
 
-参考如下代码：
+下载 [返回顶部](http://jdc.jd.com/component/list?cate=floating&filename=ex_160425_7)
 
-html结构：
-```
-<div class="ex_160425_7">
-    <!--返回顶部箭头-->
-    <img class="o2_backtop" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAoCAMAAAChHKjRAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTQ4NjVEQTU0MERDMTFFNUJERDFEM0ZEOUJFOTE2RkMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTQ4NjVEQTY0MERDMTFFNUJERDFEM0ZEOUJFOTE2RkMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1NDg2NURBMzQwREMxMUU1QkREMUQzRkQ5QkU5MTZGQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1NDg2NURBNDQwREMxMUU1QkREMUQzRkQ5QkU5MTZGQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PlO0CKoAAAAGUExURf///////1V89WwAAAACdFJOU/8A5bcwSgAAAH1JREFUeNrs0uEOgCAIBOC793/pWmQqHMZaP2XONv1McICFwDleoo5K131AdsEatTRWqCebo7GkDM2Fa2Sb15gVvCFAr+AN72lU8IZtHhS84fPpCt4QYikeEz+PCYg0Yymi4Pgo4ulCcwChcQwxQ0zaFyi070Yb/YlEHAIMAB6iBI03W6MyAAAAAElFTkSuQmCC">
-    
-</div>
-```
-css样式：
-```
-.ex_160425_7 {
-  position: fixed;
-  bottom: 50px;
-  right: 0;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(0, 0, 0, 0.9);
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-  text-align: center;
-  font-size: 10px;
-  color: #fff;
-  line-height: 18px;
-  z-index: 4;
-}
-.ex_160425_7 .o2_backtop {
-  display: block;
-  width: 18px;
-  height: 20px;
-  margin: 10px auto;
-}
-```
+2) 吸睛floating
 
+确保吸睛floating不与**返回顶部**位置冲突。多状态floating，需要做好相关注释。
+
+示例：
+
+![floating](http://jdc.jd.com/fd/promote/leeenx/floating.png)
 
 
 
