@@ -74,9 +74,7 @@
 
 ## 一、页面视觉输出标准
 
-- 活动页面采用750px的视觉设计稿输出，全部采用`rem`单位构建页面布局，部分场景结合使用`zoom/scale`参考[demo](http://jdc.jd.com/halo/cpguide/scale/)。
-
-- 以iPhone6 WeChat页面为基准
+活动页面采用750px的视觉设计稿输出，全部采用`rem`单位构建页面布局，部分场景结合使用`zoom/scale`参考[demo](http://jdc.jd.com/halo/cpguide/scale/)。
 
 ## 二、开发工作流程
 
