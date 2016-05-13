@@ -54,7 +54,7 @@
     9. 弹窗
 
     10. 分享蒙层
-    
+
     11. floating
 
 五、页面性能要求
@@ -243,9 +243,45 @@ input[type=text],textarea {
     -moz-appearance: none;
     appearance: none
 }
+
+@media screen and (min-width: 320px) {
+    html {
+        font-size:17.07px
+    }
+}
+
+@media screen and (min-width: 360px) {
+    html {
+        font-size:19.2px
+    }
+}
+
+@media screen and (min-width: 414px) {
+    html {
+        font-size:22.08px
+    }
+}
+
+@media screen and (min-width: 420px) {
+    html {
+        font-size:22.4px
+    }
+}
+
+@media screen and (min-width: 435px) {
+    html {
+        font-size:23.2px
+    }
+}
+
+@media screen and (min-width: 768px) {
+    html {
+        font-size:40.96px
+    }
+}
 ```
 ## 三、编码规范
-### 命名规范
+### 1.命名规范
 
 1）文件命名规范
 
@@ -340,52 +376,6 @@ z-index取值范围：
 - 弹窗：201～300
 - loading/分享蒙层：301～400
 
-### 6. 1px像素边框
-
-不使用rem，直接使用1px，通过`transform:scale(.5)`进行缩放处理。
-
-`示例：`
-
-![弹窗](http://jdc.jd.com/halo/cpguide/1border.png?ver=12345)
-
-`参考如下代码：`
-
-```
-.border:before {
-    border: 1px solid #e5e5e5;
-    top: 0;
-    left: 0;
-    right: -100%;
-    bottom: -100%;
-    z-index: 1;
-    -webkit-transform: scale(.5);
-    -ms-transform: scale(.5);
-    transform: scale(.5);
-    -webkit-transform-origin: 0 0;
-    -ms-transform-origin: 0 0;
-    transform-origin: 0 0;
-    pointer-events: none;
-}
-```
-
-### 7. 活动规则弹窗
-
-1) 滚动条无定制样式，强制为滚动容器添加以下样式：
-```css
--webkit-overflow-scrolling:touch;
-```
-
-2) 滚动条定制样式，强制不添加 1) 的样式。
-定制滚动条的代码参考：
-
-```css
-/*定制滚动条*/
-::-webkit-scrollbar{width:2px; height:2px;}
-::-webkit-scrollbar-button{width:0;height:0;}
-::-webkit-scrollbar-corner{display:block; }
-::-webkit-scrollbar-thumb{background-clip:padding-box;background-color:#ffffff;}
-```
-
 ## 四、交付要点（非常重要）
 ### 1.优惠券
 
@@ -420,7 +410,35 @@ z-index取值范围：
 
 ![角标](http://jdc.jd.com/halo/cpguide/tag.jpg?ver=1234)
 
-### 4. 文本
+### 4. 1px像素边框
+
+不使用rem，直接使用1px，通过`transform:scale(.5)`进行缩放处理。
+
+`示例：`
+
+![弹窗](http://jdc.jd.com/halo/cpguide/1border.png?ver=12345)
+
+`参考如下代码：`
+
+```
+.border:before {
+    border: 1px solid #e5e5e5;
+    top: 0;
+    left: 0;
+    right: -100%;
+    bottom: -100%;
+    z-index: 1;
+    -webkit-transform: scale(.5);
+    -ms-transform: scale(.5);
+    transform: scale(.5);
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+    pointer-events: none;
+}
+```
+
+### 5. 文本
 
 1) 文本溢出处理
 
@@ -474,7 +492,7 @@ z-index取值范围：
 ![截图](http://jdc.jd.com/fd/promote/leeenx/cp/place.png)
 
 
-### 5.模块活字与图片
+### 6.模块活字与图片
 
 1) 凡文字部分尽量做成活字
 
@@ -486,14 +504,14 @@ z-index取值范围：
 
 ![按钮](http://jdc.jd.com/halo/cpguide/button.jpg?ver=1234)
 
-###  6.模块的状态切换
+###  7.模块的状态切换
 凡涉及到商品列表售罄或其他状态，均需要提供齐全。
 
 `示例：`
 
 ![商品状态](http://jdc.jd.com/halo/cpguide/pro.jpg?ver=1234)
 
-### 7.TAB的选中与非选中状态
+### 8.TAB的选中与非选中状态
 
 常见的TAB多种状态，须在HTML代码注释中，标明选中与非选中状态时切换的class名称，使用方式说明清楚明了。
 
@@ -512,7 +530,7 @@ z-index取值范围：
 </div>
 ```
 
-###  8.模块的显示和隐藏状态
+###  9.模块的显示和隐藏状态
 在HTML代码注释中，标明显示与隐藏状态时切换的class名称。
 ```
 <!-- 模块显示的class为"show" -->
@@ -521,7 +539,7 @@ z-index取值范围：
 </div>
 ```
 
-### 9.弹窗
+### 10.弹窗
 
 1）弹窗聚合展示
 
@@ -541,7 +559,24 @@ z-index取值范围：
 
 ![局部滚动](http://jdc.jd.com/halo/cpguide/guen.jpg)
 
-### 10. 分享蒙层
+3) 滚动条无定制样式，强制为滚动容器添加以下样式：
+```css
+-webkit-overflow-scrolling:touch;
+```
+
+4) 滚动条定制样式，强制不添加 3) 的样式。
+
+定制滚动条的代码参考：
+
+```css
+/*定制滚动条*/
+::-webkit-scrollbar{width:2px; height:2px;}
+::-webkit-scrollbar-button{width:0;height:0;}
+::-webkit-scrollbar-corner{display:block; }
+::-webkit-scrollbar-thumb{background-clip:padding-box;background-color:#ffffff;}
+```
+
+### 11. 分享蒙层
 
 所有的分享蒙层统一在 `share.html` 中展示，并做好相关注释。
 
@@ -562,7 +597,7 @@ z-index取值范围：
 
 ![弹窗](http://jdc.jd.com/halo/cpguide/share.png?ver=123)
 
-### 11. floating
+### 12. floating
 
 1) 返回顶部
 
@@ -631,10 +666,3 @@ z-index取值范围：
 - 需求方反馈问题和修改点，CP应及时修改反馈，之后待需求方再次确认
 - 直至页面全部完成后，将文件包邮件发送给需求方和相关开发人员
 - 开发过程中若缺失部分页面内容，CP应全力配合补全，直至页面上线
-
-
-
-
-
-
-
