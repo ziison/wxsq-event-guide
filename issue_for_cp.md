@@ -409,7 +409,7 @@ z-index取值范围：
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/fd/promote/leeenx/floating.png?v=1234)
+![弹窗](http://jdc.jd.com/fd/promote/leeenx/cp/goodslist.png)
 
 
 ### 3. 角标
@@ -420,13 +420,59 @@ z-index取值范围：
 
 ![角标](http://jdc.jd.com/halo/cpguide/tag.jpg?ver=1234)
 
-### 4.文字单行多行占位
+### 4. 文本
 
-文字单行多行时，采用定高处理方式，溢出省略号，防止文字过少样式错乱，请特别注意。
+1) 文本溢出处理
 
-`示例：`
+对文本溢出，做`text-oveflow: ellipsis;` 处理。
+
+示例：
 
 ![弹窗](http://jdc.jd.com/halo/cpguide/txt.png?ver=12345)
+
+文本溢出css代码可参考如下：
+
+```css
+/*单行文本溢出*/
+.oneline{
+    font-size: 1.2rem;
+    height: 1.2rem;
+    width: 7.5rem;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*多行文本溢出*/
+.twoline{
+    font-size: 1.2rem;
+    height: 3.6rem;
+    width: 7.5rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+```
+
+2) 文本节点占位
+
+商品列表中所有的文本节点都必须指定 `height` 值，确保空内容节点仍然占位。
+
+参见以下css:
+
+```css
+.desc{
+    font-size: 1rem;
+    line-height: 1;
+    height: 1rem;//定高，确保绝对占位
+}
+```
+示例：
+
+![截图](http://jdc.jd.com/fd/promote/leeenx/cp/place.png)
+
 
 ### 5.模块活字与图片
 
@@ -534,7 +580,7 @@ z-index取值范围：
 
 示例：
 
-![floating](http://jdc.jd.com/fd/promote/leeenx/floating.png?v=1234)
+![floating](http://jdc.jd.com/fd/promote/leeenx/cp/floating.png)
 
 
 
