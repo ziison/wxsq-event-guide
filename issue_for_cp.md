@@ -398,8 +398,9 @@ z-index取值范围：
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/halo/cpguide/coupon.png?ver=1234)
+![弹窗](http://jdc.jd.com/halo/cpguide/coupon.png?ver=1234)  
 【优惠券截图】
+
 
 ### 2.商品列表
 
@@ -407,7 +408,7 @@ z-index取值范围：
 
 `示例：`
 
-![弹窗](http://jdc.jd.com/fd/promote/leeenx/floating.png)
+![弹窗](http://jdc.jd.com/fd/promote/leeenx/floating.png?v=1234)
 
 
 ### 3. 角标
@@ -532,7 +533,7 @@ z-index取值范围：
 
 示例：
 
-![floating](http://jdc.jd.com/fd/promote/leeenx/floating.png)
+![floating](http://jdc.jd.com/fd/promote/leeenx/floating.png?v=1234)
 
 
 
@@ -570,11 +571,11 @@ z-index取值范围：
 
 ## 六、页面交付验收点
 
-- 1.开发目录结构须严格遵守，[模块文件](http://jdc.jd.com/halo/cpguide/webapp.zip)下载
-- 2.交付页面稿须严格测试，性能要求达到第五大点提到的`页面性能要求`
-- 3.交付页面稿中含有css以及js，须提交无压缩和压缩文件（如，style.css/style.min.css、index.js/index.min.js）
-- 4.交付页面稿须认真参考第四大点提到的`交付注意点`，解决好常见的业务问题
-- 5.交付页面稿须展示清楚设计稿中含有的各种状态、业务场景，使用方式注释清晰明了
+1. 开发目录结构须严格遵守，[模块文件](http://jdc.jd.com/halo/cpguide/webapp.zip)下载
+2. 交付页面稿须严格测试，性能要求达到第五大点提到的`页面性能要求`
+3. 交付页面稿中含有css以及js，须提交无压缩和压缩文件（如，style.css/style.min.css、index.js/index.min.js）
+4. 交付页面稿须认真参考第四大点提到的`交付注意点`，解决好常见的业务问题
+5. 交付页面稿须展示清楚设计稿中含有的各种状态、业务场景，使用方式注释清晰明了
 
 
 ## 七、页面交付流程
