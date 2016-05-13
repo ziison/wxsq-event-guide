@@ -75,9 +75,9 @@
 
 ## 一、页面视觉输出标准
 
-1）视觉稿全部采用宽度750px标准  
-2) 构建稿全部使用`rem`  
-3) 部分场景（如逐帧动画）可结合`scale`完成,例如：[demo](http://jdc.jd.com/halo/cpguide/scale/)。
+1. 视觉稿全部采用宽度750px标准  
+2. 构建稿全部使用`rem`  
+3. 部分场景（如逐帧动画）可结合`scale`完成,例如：[demo](http://jdc.jd.com/halo/cpguide/scale/)。
 
 ## 二、开发工作流程
 
