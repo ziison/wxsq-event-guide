@@ -19,7 +19,7 @@
 
 三、编码规范
 
-    1.HTML/CSS的命名及书写规范
+    1.HTML/CSS命名规范
 
     2.唯一根节点
 
@@ -241,7 +241,7 @@ input[type=text],textarea {
 }
 ```
 ## 三、编码规范
-### 1.HTML/CSS的命名规范
+### 1.HTML/CSS命名规范
 
 1）HTML/CSS文件命名规范
 
