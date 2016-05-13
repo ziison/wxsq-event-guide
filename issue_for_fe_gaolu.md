@@ -418,7 +418,7 @@ px转rem统一使用函数名：pxTorem。使用以下函数：
     @if $toRem {
         $pos_x: pxTorem(floor(nth(sprite-position($sprite, $name), 1)));
         $pos_y: pxTorem(floor(nth(sprite-position($sprite, $name), 2)));
-        $width: pxTorem(ceil(image-height(sprite-file($sprite, $name))));
+        $width: pxTorem(ceil(image-width(sprite-file($sprite, $name))));
         $height: pxTorem(ceil(image-height(sprite-file($sprite, $name))));
         $size_w: pxTorem(ceil(image-width(sprite-path($sprite))));
         $size_h: pxTorem(ceil(image-height(sprite-path($sprite))));
