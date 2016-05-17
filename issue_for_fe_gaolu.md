@@ -1,18 +1,17 @@
 # 运营活动规范 -- 建立中
 
-运营活动的零散性，产生成了不同人员开发的页面很难在维护层面上达统一。这造成了不同人员间相互协助的难度，也造成了不同人员相互修改会出现安全隐患的风险。为此，在代码需要在维护层面上达到一个标准。
-
+由于运营活动的零散性，导致了团队不同人员所开发的页面在维护层面上很难形成统一，也增加了相互协助的难度，从而造成不同人员之间修改代码存在安全隐患的风险。为此，制定统一开发规范，方便团队后期协作、提高开发效率。
 部分内容参考 [微信朋友圈广告规范](http://wximg.qq.com/wxp/wxmoment-doc/3.1.html)
 
-## 通用规范
+## 一、通用规范
 
-### 页面兼容的目标（机型/系统）
-
+### 1.页面兼容的目标（浏览器/机型/系统）
+- 浏览器：微信，手q浏览器
 - 主流移动设备：iPhone 4+ 、三星、魅族、华为、红米、小米1S 以上及主流 Android 千元机型；请特别关注iPhone4/4s、魅族MX4、华为P6等机型
 -  操作系统：iOS 7.0+ 与 Android 4 .0+；
 
 
-### 加载速度、请求数与资源压缩
+### 2.加载速度、请求数与资源压缩
 
 - 以 3G 网络环境 100kb/s 的网络速度计算，详情页首次加载过程中，可以在 2s 内看到 Loading 页面；
 - 活动样式文件1个，脚本文件一个（zepto.js等运营活动的依赖js不计入）。且必须是压缩过后的文件；
@@ -28,163 +27,54 @@
 |分享缩略图 |	jpg | 小于 6 KB | 尺寸为 120x120 像素 |
 |视频文件 | mov/mp4/avi | 暂无要求 | 分辨率>=960×540，视频码率>=1500kbps，<br />画面比例 4:3或16:9|
 
-### 资源部署
+##  二、开发仓库目录
+svn仓库地址：
+```
+http://svn.360buy-develop.com/repos3/wxsq/mobile_operation/trunk/resource/fd/promote/
+```
+Git仓库地址：
+```
+http://source.jd.com/app/wxsq_event.git
+```
+
+##  三、资源部署
 
 - 所有的静态文件（图片，CSS以及JS文件等）都要存放在 `http://wq.360buyimg.com` 服务器上
 - 所有页面的资源都必须使用**京东商城**域名下的。
 - `JDC.JD.COM` 域名下的资源如果投放在活动页面上，需要提前与报备。建议是不要在正式页面上使用`JDC.JD.COM` 上的资源
 
-## 前端工作流程
+## 四、前端工作流程
 
-#### ko构建工具
-
-`kingfisher` （后面简称*ko*）是Simba Chen & Adam He 等同学基于微信手Q运营活动团队量身打造的自动化开发工具。它集成了开发中的常见任务，可以简化开发工作，并在打包环节对资源进行压缩合并优化。在切换到 `athena` 之前，运营的同学都应该统一使用ko来开发。
-
-如何安装与使用`ko` ，请点击[这里](http://source.jd.com/app/ko)查看
-
-#### O2前端流程工具athena（运营侧目前重点使用）
+###  O2前端流程工具athena
 
 Athena是由京东用户体验设计部`凹凸实验室`推出的一套项目流程工具，不仅包括了csslint/jshint代码检测、images压缩、csssprite雪碧图、css/js合并压缩等常用基本功能，还拥有独立的管理后台能够对资源进行实时监控，让你对项目情况一目了然！
 
 如何安装与使用`athena` ，请点击[这里](https://github.com/o2team/athena)查看
 
-## JS框架*
+###  _ko构建工具（老项目维护）_
+
+`kingfisher` （后面简称*ko*）是Simba Chen & Adam He 等同学基于微信手Q运营活动团队量身打造的自动化开发工具。它集成了开发中的常见任务，可以简化开发工作，并在打包环节对资源进行压缩合并优化。
+
+如何安装与使用`ko` ，请点击[这里](http://source.jd.com/app/ko)查看
+
+### JS框架*
 
 团队内部大部分人员都是使用 `zepto.js` ，与我们对接的开发团队也是。所以开发时需要考虑不使用与`zepto.js`冲突的框架。
+```
+<script src="//wq.360buyimg.com/fd/promote/base/zepto.min.js"></script>
+```
 
-## REM标准
+###  REM标准
 
-- 页面的尺寸适配统一使用 `REM` 与 `px `结合来完成，定高不定宽（通常高度、上下间隔采用rem，左右间隔用px）。与前端开发配合时，可以辅助地使用 `zoom`/`scale` 。
+- 页面的尺寸适配统一使用 `REM` 与 `px `结合来完成，定高不定宽（通常布局使用rem，模块大小采用px）。与前端开发配合时，可以辅助地使用 `zoom`/`scale` 。
 - `375px`宽度下，`<html>`节点的`font-size`为`20px`
 - reset-sass ---- 统一的重置样式库
 - common-sass ---- 统一共同sass库
 
 
-## 统一运营活动的头部格式
+### 统一运营活动页面结构
 
-强制统一页面头部如下：
-
-```html
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
-    <meta name="format-detection" content="telephone=no" >
-    
-    <title>感恩节卖场</title>
-    
-  	
-  	<link rel="stylesheet" type="text/css" href="css/style.css">
-  	
-	<script type="text/javascript">
-	! function() {
-	  var maxWidth = 750;
-	  document.write('<style id="o2HtmlFontSize"></style>');
-	  var o2_resize = function() {
-	      var cw, ch;
-	      if (document && document.documentElement) {
-	        cw = document.documentElement.clientWidth, ch = document.documentElement.clientHeight;
-	      }
-	      if (!cw || !ch) {
-	        if (window.localStorage["o2-cw"] && window.localStorage["o2-ch"]) {
-	          cw = parseInt(window.localStorage["o2-cw"]), ch = parseInt(window.localStorage["o2-ch"]);
-	        } else {
-	          chk_cw(); //定时检查
-	          return; //出错了
-	        }
-	      }
-	      var zoom = maxWidth && maxWidth < cw ? maxWidth / 375 : cw / 375,
-	        zoomY = ch / 504;
-	      window.localStorage["o2-cw"] = cw, window.localStorage["o2-ch"] = ch;
-	      window.zoom = window.o2Zoom = zoom;
-	      document.getElementById("o2HtmlFontSize").innerHTML = 'html{font-size:' + (zoom * 20) + 'px;}.o2-zoom,.zoom{zoom:' + (zoom / 2) + ';}.o2-scale{-webkit-transform: scale(' + zoom / 2 + '); transform: scale(' + zoom / 2 + ');}';
-	    },
-	    siv,
-	    chk_cw = function() {
-	      if (siv) return; //已经存在
-	      siv = setInterval(function() {
-	        //定时检查
-	        document && document.documentElement && document.documentElement.clientWidth && document.documentElement.clientHeight && (o2_resize(), clearInterval(siv), siv = undefined);
-	      }, 100);
-	    };
-	  o2_resize(); //立即初始化
-	  window.addEventListener("resize", o2_resize);
-	}();
-	</script>
-
-</head>
-```
-
- `ko`下统一使用以下结构：
-
-```html
-<% widget
-	path="/widget/header"
-	data="{'title':'双十二预热 三免一','css':['css/index.css'],'zoom':1,'scale':1,'rem':1,'fixIP5':1,'maxWidth':'750'}"
-%>
-<!--根据实际需求设置zoom,scale,rem。默认只开启rem。fixIP5表示强制IP5的微信webview的宽高比为极限比率-->
-<body>
-
-</body>
-</html>
-```
-
-头部的widget定义如下：
-
-```html
-<!DOCTYPE HTML>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
-    <meta name="format-detection" content="telephone=no" >
-    <%# 标题 %>
-    <title><%= title %></title>
-    <%# 循环输出传入的参数 %>
-    <% for(var i=0; i<css.length; i++) {%>
-        <link rel="stylesheet" type="text/css" href="<%= css[i] %>">
-    <% } %>
-</head>
-<script type="text/javascript">
-!function(){
-    var maxWidth=<%=maxWidth%>;
-    document.write('<style id="o2HtmlFontSize"></style>');
-    var o2_resize=function(){
-        var cw,ch;
-        if(document&&document.documentElement){
-            cw=document.documentElement.clientWidth,ch=document.documentElement.clientHeight;
-        }
-        if(!cw||!ch){
-            if(window.localStorage["o2-cw"]&&window.localStorage["o2-ch"]){
-                cw=parseInt(window.localStorage["o2-cw"]),ch=parseInt(window.localStorage["o2-ch"]);
-            }else{
-                chk_cw();//定时检查
-                return ;//出错了
-            }
-        }
-
-        var zoom=maxWidth&&maxWidth<cw?maxWidth/375:cw/375,zoomY=ch/504;
-        window.localStorage["o2-cw"]=cw,window.localStorage["o2-ch"]=ch;
-        <% if(fixIP5==1) {%>zoom=Math.min(zoom,zoomY);<%}%>
-        <% if(zoom==1 || scale==1){ %>window.zoom=window.o2Zoom=zoom;<%}%>
-        document.getElementById("o2HtmlFontSize").innerHTML='<% if(rem==1){ %>html{font-size:'+(zoom*20)+'px;}<%}%><% if(zoom==1){ %>.o2-zoom,.zoom{zoom:'+(zoom/2)+';}<%}%><%if(scale==1){ %>.o2-scale{-webkit-transform: scale('+zoom/2+'); transform: scale('+zoom/2+');}<%}%>';
-    },
-    siv,
-    chk_cw=function(){
-        if(siv)return ;//已经存在
-        siv=setInterval(function(){
-            //定时检查
-            document&&document.documentElement&&document.documentElement.clientWidth&&document.documentElement.clientHeight&&(o2_resize(),clearInterval(siv),siv=undefined);
-        },100);
-    };
-    o2_resize();//立即初始化
-    window.addEventListener("resize",o2_resize);
-}();
-</script>
-```
-
-
-
-`athena` 统一头部：
+统一页面结构如下：
 ```
 <!DOCTYPE HTML>
 <html lang="zh-CN">
@@ -205,9 +95,10 @@ Athena是由京东用户体验设计部`凹凸实验室`推出的一套项目流
   <!-- S 引用前端页面片 -->
   <!--#include virtual="/sinclude/cssi/promote/201606/sqtsvenue/index.shtml" -->
   <!-- E 引用前端页面片 -->
+  
   <script type="text/javascript">
 !function(){
-    var maxWidth=750;
+    var maxWidth=768;
     document.write('<style id="o2HtmlFontSize"></style>');
     var o2_resize=function(){
         var cw,ch;
@@ -245,16 +136,16 @@ Athena是由京东用户体验设计部`凹凸实验室`推出的一套项目流
 </head>
 ```
 
-## 通用组件的样式名
+### 通用组件的样式名
 
-运营活动的底部目前已经由运营侧自己负责了，往后的能用组件可能会增加，为了避免其它团队使用我们的样式时不冲突，通用组件的样式使用统一的样式名前缀：`o2_`。
+运营活动的底部目前已经由运营侧自己负责了，往后的能用组件可能会增加，为了避免其它团队使用我们的样式时不冲突，通用组件的模块须有且只有一个根节点，并为根节点取唯一的类名约定一个简单的命名规则如下： `开发者二字码_yymmdd_xx xx`表示数字序号，根节点子节点所有的类名都使用统一的前缀：`o2_`。
 
-例如： `.o2_goods_list{...}`
+例如： 根节点命名：`ex_160516_1`，子节点命名：`o2_goods_list{...}`
 
 *这里会有一个问题：如果外部引用我们的底部或其它通用组件时，如果他们不使用REM，那就会出问题。所以做通用组件时，还需要考虑这情况*
 
 
-## 统一的reset sass
+### 统一的reset sass
 
 ```css
 @charset "utf-8";
@@ -264,7 +155,7 @@ Athena是由京东用户体验设计部`凹凸实验室`推出的一套项目流
 	outline: 0
 }
 
-*,blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul {
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul {
 	margin: 0;
 	padding: 0;
 	vertical-align: baseline
@@ -481,10 +372,10 @@ ios8.x以后的 safari支持毛玻璃效果，建议统一加透明蒙层添加�
 <pre>
 占位节点  
     └── TAB容器  
-  	├── TAB1  
-  	├── TAB2  
-  	├──  ...  
-  	└── TABn
+	 	├── TAB1  
+	  	├── TAB2  
+	  	├──  ...  
+	  	└── TABn
 </pre>
 ## 活动规则弹窗
 
