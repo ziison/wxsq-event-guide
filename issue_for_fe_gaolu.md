@@ -38,7 +38,7 @@ http://source.jd.com/app/wxsq_event.git
 ```
 
 
-## 3 活动资源
+## 3. 活动资源
 
 #### 3.1 活动资源目录
 
