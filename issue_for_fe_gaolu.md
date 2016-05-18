@@ -103,7 +103,7 @@ Athena是由京东用户体验设计部`凹凸实验室`推出的一套项目流
 
 ###  5.3 REM标准
 
-- 页面的尺寸适配统一使用 `REM` 与 `px` 结合来完成，[定高不定宽](http://jdc.jd.com/fd/promote/201606/components/index2.html)（通常布局使用rem，模块大小采用px）；可以辅助地使用 `zoom`/`scale` ；
+- 页面的尺寸适配统一使用 `REM` 与 `px` 结合来完成，定高不定宽（通常布局使用rem，模块大小采用px）,参考示例[demo](http://jdc.jd.com/fd/promote/201606/components/index2.html)；可以辅助地使用 `zoom`/`scale` ；
 - `375px`宽度下，`<html>`节点的`font-size`为`20px`。
 
 ### 5.4 统一的页头
