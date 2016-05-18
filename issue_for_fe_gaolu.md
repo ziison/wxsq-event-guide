@@ -347,7 +347,7 @@ ClassName的命名应该尽量精短、明确，必须以字母开头命名，�
 
 ```css
 .wrapper{
-    width: pxTorem(768px);  
+    width: pxTorem(750px);  
     height: auto;//如果没有高度限制，使用auto
     overflow: hidden;//必选
     margin:0 auto;
@@ -476,7 +476,7 @@ ios8.x以后的 safari支持毛玻璃效果，建议统一加透明蒙层添加�
 
 ## 7.检查列表
 
-1.使用`<div class="wrapper"></div>`做为根节点，且设定最大宽度值为`768px`
+1.使用`<div class="wrapper"></div>`做为根节点，且设定脚本最大宽度缩放值为`768px`
 
 2.活动规则弹窗，统一为活动规则的容器添加弹性滚动的样式（定制滚动条除外）
 
