@@ -103,7 +103,7 @@ Athena是由京东用户体验设计部`凹凸实验室`推出的一套项目流
 
 ###  5.3 REM标准
 
-- 页面的尺寸适配统一使用 `REM` 与 `px` 结合来完成，`定高不定宽`（通常布局使用rem，模块大小采用px）；可以辅助地使用 `zoom`/`scale` ；
+- 页面的尺寸适配统一使用 `REM` 与 `px` 结合来完成，[定高不定宽](http://jdc.jd.com/fd/promote/201606/components/index2.html)（通常布局使用rem，模块大小采用px）；可以辅助地使用 `zoom`/`scale` ；
 - `375px`宽度下，`<html>`节点的`font-size`为`20px`。
 
 ### 5.4 统一的页头
@@ -347,7 +347,7 @@ ClassName的命名应该尽量精短、明确，必须以字母开头命名，�
 
 ```css
 .wrapper{
-    width: 18.75rem;  // 计算方式  750/40 ＝ 18.75rem
+    width: pxTorem(768px);  
     height: auto;//如果没有高度限制，使用auto
     overflow: hidden;//必选
     margin:0 auto;
@@ -474,7 +474,13 @@ ios8.x以后的 safari支持毛玻璃效果，建议统一加透明蒙层添加�
 ::-webkit-scrollbar-thumb{background-clip:padding-box;background-color:#ffffff;}
 ```
 
+## 7.检查列表
 
+1.使用`<div class="wrapper"></div>`做为根节点，且最大宽度值为768px
+2.活动规则弹窗，统一为活动规则的容器添加弹性滚动的样式（定制滚动条除外）
+3.单张图片尺寸不超过`2000x2000`像素，且大小小于200KB 
+4.统一使用Athena项目流程工具
+5.新项目代码每天提交
 
 
 
