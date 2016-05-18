@@ -88,16 +88,6 @@ Athena是由京东用户体验设计部`凹凸实验室`推出的一套项目流
 
 如何安装与使用`athena` ，请点击[这里](https://github.com/o2team/athena)查看
 
-athena项目的.gitignore配置：
-```
-db.store
-node_modules/
-.DS_Store
-dist/
-temp/
-.sass-cache
-```
-
 ####    5.1.2 _ko构建工具（老项目维护）_
 
 `kingfisher` （后面简称*ko*）是Simba Chen & Adam He 等同学基于微信手Q运营活动团队量身打造的自动化开发工具。它集成了开发中的常见任务，可以简化开发工作，并在打包环节对资源进行压缩合并优化。
