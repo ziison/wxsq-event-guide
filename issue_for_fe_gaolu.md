@@ -221,15 +221,16 @@ body {
 	margin: 0 auto;
 	height: 100%;
 	font-size: 14px;
-	font-family: Helvetica,STHeiti STXihei,Microsoft JhengHei,Microsoft YaHei,Arial;
+	font-family: PingFangSC-Regular,Helvetica,STHeiti STXihei,Microsoft JhengHei,Microsoft YaHei,Arial;
 	line-height: 1.5;
+    -webkit-user-select: none;
+    user-select: none;
 	-webkit-text-size-adjust: 100%!important;
 	text-size-adjust: 100%!important
 }
 
 input[type=text],textarea {
 	-webkit-appearance: none;
-	-moz-appearance: none;
 	appearance: none
 }
 ```
