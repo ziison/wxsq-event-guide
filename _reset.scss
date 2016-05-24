@@ -48,7 +48,7 @@ body {
     font-size: 14px;
     font-family: PingFangSC-Regular,Helvetica,STHeiti STXihei,Microsoft JhengHei,Microsoft YaHei,Arial;
     line-height: 1.5;
-    -webkit-text-size-adjust: 100%!important;
+    user-select: none;
     text-size-adjust: 100%!important
 }
 

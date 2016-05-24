@@ -223,14 +223,11 @@ body {
 	font-size: 14px;
 	font-family: PingFangSC-Regular,Helvetica,STHeiti STXihei,Microsoft JhengHei,Microsoft YaHei,Arial;
 	line-height: 1.5;
-    -webkit-user-select: none;
     user-select: none;
-	-webkit-text-size-adjust: 100%!important;
 	text-size-adjust: 100%!important
 }
 
 input[type=text],textarea {
-	-webkit-appearance: none;
 	appearance: none
 }
 ```
