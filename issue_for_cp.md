@@ -652,7 +652,7 @@ z-index取值范围：
 ## 六、页面交付验收点
 
 1. 开发目录结构须严格遵守，[模块文件](http://jdc.jd.com/halo/cpguide/webapp.zip)下载
-2. 交付页面稿中所含有的图片需使用[TinyPNG](https://tinypng.com/)进行压缩处理
+2. 交付页面稿中所有的图片需使用[TinyPNG](https://tinypng.com/)进行压缩处理
 3. 交付页面稿中含有css以及js，须提交无压缩和压缩文件（如，style.css/style.min.css、index.js/index.min.js）
 4. 交付页面稿须严格测试，性能要求达到第五大点提到的`页面性能要求`
 5. 交付页面稿须认真参考第四大点提到的`交付注意点`，解决好常见的业务问题
