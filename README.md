@@ -221,7 +221,7 @@ body {
     margin: 0 auto;
     height: 100%;
     font-size: 14px;
-    font-family: Helvetica,STHeiti STXihei,Microsoft JhengHei,Microsoft YaHei,Arial;
+    font-family: -apple-system,Helvetica,sans-serif;
     line-height: 1.5;
     -webkit-text-size-adjust: 100%!important;
     text-size-adjust: 100%!important
