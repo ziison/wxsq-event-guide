@@ -232,6 +232,22 @@ input[type=text],textarea {
     -moz-appearance: none;
     appearance: none
 }
+$rem_grid : 20;
+html{
+    font-size: $rem_grid * 1px;
+    
+    @mixin rem_cross( $width ) {
+        @include media( $width * 1px ) {
+            font-size:  $width / 375 * $rem_grid * 1px
+        }
+    }
+    @include rem_cross(320);
+    @include rem_cross(360);
+    @include rem_cross(414);
+    @include rem_cross(420);
+    @include rem_cross(435);
+    @include rem_cross(768);
+}
 ```
 
 ### 5.6 统一的common sass
