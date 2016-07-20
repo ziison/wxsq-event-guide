@@ -46,12 +46,30 @@ body {
     margin: 0 auto;
     height: 100%;
     font-size: 14px;
-    font-family: PingFangSC-Regular,Helvetica,STHeiti STXihei,Microsoft JhengHei,Microsoft YaHei,Arial;
+    font-family: -apple-system,Helvetica,sans-serif;
     line-height: 1.5;
-    user-select: none;
+    -webkit-text-size-adjust: 100%!important;
     text-size-adjust: 100%!important
 }
 
 input[type=text],textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none
+}
+$rem_grid : 20;
+html{
+    font-size: $rem_grid * 1px;
+
+    @mixin rem_cross( $width ) {
+        @include media( $width * 1px ) {
+            font-size:  $width / 375 * $rem_grid * 1px
+        }
+    }
+    @include rem_cross(320);
+    @include rem_cross(360);
+    @include rem_cross(414);
+    @include rem_cross(420);
+    @include rem_cross(435);
+    @include rem_cross(768);
 }
