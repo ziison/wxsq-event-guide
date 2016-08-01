@@ -1,14 +1,76 @@
+
 @import "compass/utilities/sprites";
 
-//pxTorem
+/*
+z-index最大值不得超过700。
+
+z-index取值范围：
+    普通元素：0～100
+    floating/吸顶/吸底：101～200
+    弹窗：201～300
+    loading/分享蒙层：301～400
+*/
+$index_float: 101;
+$index_popup: 201;
+$index_mask: 301;
+
+// 红色
+$red: #e23a3d;
+
+// 媒体查询
+@mixin media( $limit ) {
+    @media screen and ( min-width: $limit){
+        &{
+            @content;
+        }
+    }
+}
+
 @function pxTorem($px) {
     @if $px == 0 {
         @return 0;
+    }
+    @if $px <=2 and $px > 0 {
+        @return 1px;
     }
     @else {
         @return $px / ($px * 0 + 1) / 40 * 1rem;
     }
 
+}
+
+//compass 二倍图转rem
+@mixin s2b($sprite, $name, $toRem:true) {
+    background: sprite-url($sprite);
+
+    $width: ceil(image-width(sprite-file($sprite, $name)));
+    $height: ceil(image-height(sprite-file($sprite, $name)));
+    $pos_x: floor(nth(sprite-position($sprite, $name), 1));
+    $pos_y: floor(nth(sprite-position($sprite, $name), 2));
+
+    $size_w: ceil(image-width(sprite-path($sprite)));
+    $size_h: ceil(image-height(sprite-path($sprite)));
+    @if $toRem {
+        $pos_x: pxTorem($pos_x);
+        $pos_y: pxTorem($pos_y);
+        $width: pxTorem($width);
+        $height: pxTorem($height);
+        $size_w: pxTorem($size_w);
+        $size_h: pxTorem($size_h);
+    }
+    @else {
+        $pos_x: px($pos_x);
+        $pos_y: px($pos_y);
+        $width: px($width);
+        $height: px($height);
+        $size_w: px($size_w);
+        $size_h: px($size_h);
+    }
+
+    background-position: $pos_x $pos_y;
+    background-size: $size_w $size_h;
+    height: $height;
+    width: $width;
 }
 
 @mixin lineclamp($line:1){
@@ -23,28 +85,16 @@
     text-overflow: ellipsis;
 }
 
-//compass 二倍图转rem
-@mixin s2b($sprite, $name, $toRem:true) {
-    $width: ceil(image-width(sprite-file($sprite, $name)) / 2);
-    $height: ceil(image-height(sprite-file($sprite, $name)) / 2);
-    $pos_x: floor(nth(sprite-position($sprite, $name), 1) / 2);
-    $pos_y: floor(nth(sprite-position($sprite, $name), 2) / 2);
-    
-    $size_w: ceil(image-width(sprite-path($sprite)) / 2);
-    $size_h: ceil(image-height(sprite-path($sprite)) / 2);
-    @if $toRem {
-        $pos_x: pxTorem($pos_x);
-        $pos_y: pxTorem($pos_y);
-        $width: pxTorem($width);
-        $height: pxTorem($height);
-        $size_w: pxTorem($size_w);
-        $size_h: pxTorem($size_h);
-    }
-    
-    background: sprite-url($sprite) no-repeat $pos_x $pos_y;
-    background-size: $size_w $size_h;
-    height: $height;
-    width: $width;
+@mixin blur($px:4px) {
+     -webkit-backdrop-filter: blur($px);
 }
 
-
+@function px($px){
+    @if($px>0 and $px<=1){
+        @return 1px;
+    }
+    @else if($px<0 and $px>=-1){
+        @return -1px;
+    }
+    @return $px / 2;
+}
