@@ -17,6 +17,17 @@ $index_mask: 301;
 // 红色
 $red: #e23a3d;
 
+// 默认字体
+%default_font {
+    font-family: -apple-system, Helvetica, sans-serif;
+}
+
+%inline-block-font: {
+    font-family: Helvetica, sans-serif;
+}
+
+// 不带-apple-system字体
+
 // 媒体查询
 @mixin media( $limit ) {
     @media screen and ( min-width: $limit){
@@ -98,3 +109,140 @@ $red: #e23a3d;
     }
     @return $px / 2;
 }
+
+// 1像素边框
+// $position:［边框位置］top, bottom, left, right
+// $color:［边框颜色］
+// $radius:［圆角］
+// 使用：@include border(top, #ddd); 或 @include border(full, #ddd, 2px);
+// %border 项目中无需引用
+%_mod_border {content: '\20';display: block;position: absolute;z-index: 1;pointer-events: none;}
+@mixin border($position, $borderColor: #ddd, $radius: 0) {
+    @extend %_mod_border;
+    background: $borderColor;
+    @if $position == top {
+        height: 1px;left: 0;right: 0;top: 0;
+        @media only screen and (-webkit-min-device-pixel-ratio:2) {
+            &{
+                -webkit-transform: scaleY(0.5);
+                -webkit-transform-origin: 50% 0%;
+            }
+        }
+    }
+    @if $position == bottom {
+        height: 1px;left: 0;right: 0;bottom: 0;
+        @media only screen and (-webkit-min-device-pixel-ratio:2) {
+            &{
+                -webkit-transform: scaleY(0.5);
+                -webkit-transform-origin: 50% 100%;
+            }
+        }
+    }
+    @if $position == left {
+        width: 1px;top: 0;bottom: 0;left: 0;
+        @media only screen and (-webkit-min-device-pixel-ratio:2) {
+            &{
+                -webkit-transform: scaleX(0.5);
+                -webkit-transform-origin: 0% 50%;
+            }
+        }
+    }
+    @if $position == right {
+        width: 1px;top: 0;bottom: 0;right: 0;
+        @media only screen and (-webkit-min-device-pixel-ratio:2) {
+            &{
+                -webkit-transform: scaleX(0.5);
+                -webkit-transform-origin: 100% 50%;
+            }
+        }
+    }
+    @if $position == full {
+        border: 1px solid #ddd;top: 0;bottom: 0;left: 0;right: 0;
+        background: none;
+        border-color: $borderColor;
+        @if $radius != 0 {
+            border-radius: $radius;
+        }
+        @media only screen and (-webkit-min-device-pixel-ratio:2) {
+            &{
+                right: -100%;
+                bottom:-100%;
+                -webkit-transform:scale(0.5);
+                -webkit-transform-origin: 0% 0%;
+                $radiusx2: null;
+                @each $i in $radius {
+                    $radiusx2: append($radiusx2, $i * 2);
+                }
+                @if $radius != 0 {
+                    border-radius: $radiusx2;
+                }
+            }
+        }
+    }
+}
+// 吸顶元素
+// $dom:［內容器选择器］
+// $height:［外容器站位高度］
+// $top:［吸顶时距离顶部距离］
+// $zIndex:［z-index数值］
+// 使用：@include sticty('ul', 40px, 0, 10); 或 @include sticty('.wrap', 40px);
+@mixin sticky($dom, $height, $top:0, $zIndex:10) {
+    position: relative;
+    height: $height;
+    z-index: $zIndex;
+    &.fixed #{$dom} {
+        position: fixed;
+        top: $top;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        max-width: 540px;
+        z-index: $zIndex;
+    }
+    @supports (position: -webkit-sticky) {
+        & {
+            position: -webkit-sticky;
+            top: $top;
+            height: auto;
+            &.fixed #{$dom} {position: relative;}
+        }
+    }
+}
+
+// 平滑滚动
+// $orientation:［方向］x, y
+// 使用：@inlucde scroll; 或 @inlucde scroll(x); @inlucde scroll(y);
+@mixin scroll($orientation: '') {
+    @if ($orientation == '') {
+        overflow: auto;
+    }
+    @else {
+        overflow-#{$orientation}: auto;
+    }
+    -webkit-overflow-scrolling: touch;
+}
+
+//隐藏滚动条
+@mixin hide_scroll(){
+    &::-webkit-scrollbar{width:pxTorem(0px); height:pxTorem(0px);}
+}
+
+// 清除浮动
+%clearfix {
+    &:after {
+        content: '\20';
+        display: block;
+        clear: both;
+    }
+}
+
+// flexbox 布局
+%flexbox {
+    display: flex;
+    overflow: hidden;
+}
+
+
+
+
+
