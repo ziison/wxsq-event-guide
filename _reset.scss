@@ -73,3 +73,32 @@ html{
     @include rem_cross(435);
     @include rem_cross(768);
 }
+
+.o2_top {
+  position: fixed;
+  bottom: 50px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  text-align: center;
+  font-size: 10px;
+  color: #fff;
+  line-height: 18px;
+  z-index: 4;
+}
+.o2_top .o2_backtop {
+  display: block;
+  width: 18px;
+  height: 20px;
+  margin: 10px auto;
+}
+.o2_top .o2_line {
+  display: block;
+  width: 20px;
+  height: 1px;
+  margin: 0 auto;
+  background-color: #fff;
+}
