@@ -233,7 +233,9 @@ body {
     font-family: -apple-system,Helvetica,sans-serif;
     line-height: 1.5;
     -webkit-text-size-adjust: 100%!important;
-    text-size-adjust: 100%!important
+    text-size-adjust: 100%!important;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 input[type=text],textarea {
