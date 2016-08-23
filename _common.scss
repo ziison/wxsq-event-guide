@@ -224,7 +224,11 @@ $red: #e23a3d;
 
 //隐藏滚动条
 @mixin hide_scroll_bar(){
-    &::-webkit-scrollbar{width:pxTorem(0px); height:pxTorem(0px);}
+    &::-webkit-scrollbar{
+        width:0; 
+        height:0;
+        display: none;
+    }
 }
 
 // 清除浮动
