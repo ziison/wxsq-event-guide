@@ -13,17 +13,17 @@ $index_float: 101;
 $index_popup: 201;
 $index_mask: 301;
 
+$font_family: Helvetica, sans-serif;
+$apple_font: -apple-system, Helvetica, sans-serif;
+
 // 红色
 $red: #e23a3d;
 
 // 默认字体
 %default_font {
-    font-family: -apple-system, Helvetica, sans-serif;
+    font-family: $apple_font;
 }
 
-%inline-block-font {
-    font-family: Helvetica, sans-serif;
-}
 
 // 不带-apple-system字体
 
