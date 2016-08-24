@@ -246,30 +246,6 @@ $red: #e23a3d;
     overflow: hidden;
 }
 
-@mixin s2b_px($sprite, $name, $toRem:true) {
-    background: sprite-url($sprite);
-
-    $width: ceil(image-width(sprite-file($sprite, $name)));
-    $height: ceil(image-height(sprite-file($sprite, $name)));
-    $pos_x: floor(nth(sprite-position($sprite, $name), 1));
-    $pos_y: floor(nth(sprite-position($sprite, $name), 2));
-
-    $size_w: ceil(image-width(sprite-path($sprite)));
-    $size_h: ceil(image-height(sprite-path($sprite)));
-    @if $toRem {
-        $pos_x: px($pos_x);
-        $pos_y: px($pos_y);
-        $width: px($width);
-        $height: px($height);
-        $size_w: px($size_w);
-        $size_h: px($size_h);
-    }
-
-    background-position: $pos_x $pos_y;
-    background-size: $size_w $size_h;
-    height: $height;
-    width: $width;
-}
 
 
 
