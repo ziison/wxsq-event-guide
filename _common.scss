@@ -246,7 +246,19 @@ $red: #e23a3d;
     overflow: hidden;
 }
 
-
+@mixin as($name:sprite,$img:'',$rem: 'px', $rootvalue: 20){
+    @if($rem!='rem'){
+        //不是 rem 其它值默认为 px
+        $rem: 'px';
+    }
+    @if($rem=='rem'){
+        //如果是 rem 需要指定一个 rootvalue
+        $rem: 'rem=#{$rootvalue}';
+    }
+    @if(''!=$img){
+        background: url(../images/#{$img}@2x.png?__sprite=#{$name}&__#{$rem});
+    }
+}
 
 
 
