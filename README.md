@@ -63,6 +63,8 @@ http://source.jd.com/app/wxsq_event.git
 
 变量名首字母必须为字母(a-z A-Z)，变量名只能是字母(a-z A-Z)，数字(0-9)，下划线(_)的组合，并且之间不能包含空格，数字不能放在变量名首位。
 
+> 活动项目名称强规划：sns名字要带 _sns 结果，卖场要带 _mall。例如：3c开学季sns -- 3c_sns；3c开学季卖场 3c_mall
+
 #### 3.3 创建新项目规范
 
 - 在当月目录下`svn update/git fetch`
@@ -87,10 +89,6 @@ http://source.jd.com/app/wxsq_event.git
 Athena是由京东用户体验设计部`凹凸实验室`推出的一套项目流程工具，不仅包括了csslint/jshint代码检测、images压缩、csssprite雪碧图、css/js合并压缩等常用基本功能，还拥有独立的管理后台能够对资源进行实时监控，让你对项目情况一目了然！
 
 如何安装与使用`athena` ，请点击[这里](https://github.com/o2team/athena)查看
-
-####    5.1.2 _ko（仅用于维护旧项目）_
-
-如何安装与使用`ko` ，请点击[这里](http://source.jd.com/app/ko)查看
 
 ###  5.2 JS框架*
 
