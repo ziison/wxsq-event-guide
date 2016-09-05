@@ -42,7 +42,7 @@ http://source.jd.com/app/wxsq_event.git
 
 #### 3.1 活动资源目录
 
-静态资源（图片/css/js等）的目录统一存放在：`sftp://192.168.145.37/export/wxsq/resource/fd/promote/`
+静态资源（图片/css/js等）的目录统一存放在：`sftp://192.168.145.37/export/wxsq/resource/fd/h5/`
 然后，按`年月`（yymm）来建立当月的目录如下：
 ```
 ├── 1501  
